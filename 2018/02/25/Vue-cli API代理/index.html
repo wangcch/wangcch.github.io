@@ -5,19 +5,19 @@
   
 
   
-  <title>get put post delete 区别 | BLOG | THEYEAR</title>
+  <title>vue-cli API代理 | BLOG | THEYEAR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="GET 查看   PUT 更新与创建   POST 创建   DELETE 删除">
+  <meta name="description" content="使用proxyTable进行跨域API代理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="get put post delete 区别">
-<meta property="og:url" content="http://cv.theyear.space/theyear.html/2017/11/10/get put post delete区别/index.html">
+<meta property="og:title" content="vue-cli API代理">
+<meta property="og:url" content="http://cv.theyear.space/theyear.html/2018/02/25/Vue-cli API代理/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
-<meta property="og:description" content="GET 查看   PUT 更新与创建   POST 创建   DELETE 删除">
+<meta property="og:description" content="使用proxyTable进行跨域API代理">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-11-16T15:34:37.000Z">
+<meta property="og:updated_time" content="2018-02-26T17:03:41.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="get put post delete 区别">
-<meta name="twitter:description" content="GET 查看   PUT 更新与创建   POST 创建   DELETE 删除">
+<meta name="twitter:title" content="vue-cli API代理">
+<meta name="twitter:description" content="使用proxyTable进行跨域API代理">
   
     <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
   
@@ -62,10 +62,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-get put post delete区别" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Vue-cli API代理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/11/10/get put post delete区别/" class="article-date">
-  <time datetime="2017-11-09T16:00:00.000Z" itemprop="datePublished">2017-11-10</time>
+    <a href="/2018/02/25/Vue-cli API代理/" class="article-date">
+  <time datetime="2018-02-24T16:00:00.000Z" itemprop="datePublished">2018-02-25</time>
 </a>
     
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      get put post delete 区别
+      vue-cli API代理
     </h1>
   
 
@@ -84,45 +84,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td>查看</td>
-</tr>
-<tr>
-<td>PUT</td>
-<td>更新与创建</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>创建</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>删除</td>
-</tr>
-</tbody>
-</table>
+        <p>使用proxyTable进行跨域API代理</p>
 <a id="more"></a>
-<h2 id="get"><a href="#get" class="headerlink" title="get"></a>get</h2><p>GET请求向数据库索取数据请求，从而获取信息。只是查询数据，不会修改和影响数据本身。</p>
-<p>对于GET方式，浏览器会把http、header和data一并发送出去，服务器响应200。</p>
-<h2 id="PUT"><a href="#PUT" class="headerlink" title="PUT"></a>PUT</h2><p>PUT请求是向服务器端发送数据，从而改变数据。类似于update, 用于改变数据的内容，并不会数据结构。</p>
-<h2 id="post"><a href="#post" class="headerlink" title="post"></a>post</h2><p>POST请求与PUT类似，都是向服务器端发送数据。但会改变数据的类型与内容。</p>
-<p>而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200。 （并不是所有浏览器都会在POST中发送两次包，Firefox就只发送一次）</p>
-<h2 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h2><p>DELETE请求是删除操作</p>
-<p>参考：<br><a href="https://www.15yan.com/story/7dz6oXiSHeq/" target="_blank" rel="noopener">get、put、post、delete含义与区别</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config/index.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  dev: &#123;</span><br><span class="line">    proxyTable: &#123;</span><br><span class="line">      <span class="comment">// 将所有以 /api 开头的请求通过 jsonplaceholder 代理</span></span><br><span class="line">      <span class="string">'/api'</span>: &#123;</span><br><span class="line">        target: <span class="string">'https://wangcch.cc'</span>,</span><br><span class="line">        changeOrigin: <span class="literal">true</span>,</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$http.get(<span class="string">'/api/demo'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.data);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-resource</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cv.theyear.space/theyear.html/2017/11/10/get put post delete区别/" data-id="cje4h3umn00053x2jn0yvvrv7" class="article-share-link">Teilen</a>
+      <a data-url="http://cv.theyear.space/theyear.html/2018/02/25/Vue-cli API代理/" data-id="cje4h3uml00033x2joad92rq3" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -131,19 +104,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/11/14/npm 常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          npm 常用命令
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/16/vue常用ui组件/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/02/25/添加VS Code命令行/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Vue 常用UI组件</div>
+      <div class="article-nav-title">添加VS Code命令行</div>
     </a>
   
 </nav>
