@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vim 基本命令，常用命令 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="vim 基本命令，常用命令">
+<meta property="og:url" content="http://cv.theyear.space/theyear.html/2018/02/12/vim基本命令，常用命令/index.html">
+<meta property="og:site_name" content="BLOG | THEYEAR">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://o7msui8ho.qnssl.com/img/vim.png">
+<meta property="og:updated_time" content="2018-02-25T09:11:26.063Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim 基本命令，常用命令">
+<meta name="twitter:image" content="https://o7msui8ho.qnssl.com/img/vim.png">
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">BLOG | THEYEAR</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://cv.theyear.space/theyear.html"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vim基本命令，常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/12/vim基本命令，常用命令/" class="article-date">
+  <time datetime="2018-02-11T16:00:00.000Z" itemprop="datePublished">2018-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vim 基本命令，常用命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://o7msui8ho.qnssl.com/img/vim.png" alt="vi/vim键盘图"></p>
+<a id="more"></a>
+<h1 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vim                    #命令行中进入vim编辑器</span><br><span class="line">Esc                    #退出i(插入模式)，取消操纵</span><br><span class="line">:! command             #暂时离开vi到指令模式下执行command命令，如：!ls 执行ls命令</span><br><span class="line">:sh                    #进入shell命令行,执行完命令后ctrl+d退出重新进入vim编辑继续编辑 在shell命令下，执行ctrl+l完成清屏</span><br><span class="line">:r filename            #读入一个文件内容,并写入到当前编辑器中</span><br><span class="line">:w newfilename         #将该编辑器中的内容写入到一个新文件中</span><br><span class="line">:w                     #在编辑的过程中保存文件,相当于word中的ctrl+s </span><br><span class="line">:wq                    #保存文件并退出</span><br><span class="line">:x                     #写文件(如果有做修改)并退出</span><br><span class="line">:q!                    #强制退出,不保存</span><br><span class="line">:sav filename          #保存为</span><br><span class="line"></span><br><span class="line">vim + filename         #进行文件最后一行进行编辑</span><br><span class="line">vim +n filename        #进入文件第n行进行编辑</span><br></pre></td></tr></table></figure>
+<h1 id="复制命令"><a href="#复制命令" class="headerlink" title="复制命令"></a>复制命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yy                     #将当前行的内容放入临时缓冲区 </span><br><span class="line">nyy                    #将 n 行的内容放入临时缓冲区 </span><br><span class="line">p                      #将临时缓冲区中的文本放入光标后 </span><br><span class="line">P                      #将临时缓冲区中的文本放入光标前 </span><br><span class="line">&quot;(a-z)nyy              #复制 n 行放入名字为圆括号内的可命名缓冲区，省略 n 表示当前行 </span><br><span class="line">&quot;(a-z)ndd              #删除 n 行放入名字为圆括号内的可命名缓冲区，省略 n 表示当前行 </span><br><span class="line">&quot;(a-z)p                #将名字为圆括号的可命名缓冲区的内容放入当前行后 </span><br><span class="line">&quot;(a-z)P                #将名字为圆括号的可命名缓冲区的内容放入当前行前</span><br></pre></td></tr></table></figure>
+<h1 id="移动命令"><a href="#移动命令" class="headerlink" title="移动命令"></a>移动命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">h                    #向左移一个字符 </span><br><span class="line">j                    #向下移一行 </span><br><span class="line">k                    #向上移一行 </span><br><span class="line">l                    #向右移一个字符</span><br><span class="line"></span><br><span class="line">w                    #移到下一个字的开头 </span><br><span class="line">W                    #移到下一个字的开头，忽略标点符号 </span><br><span class="line">b                    #移到前一个字的开头 </span><br><span class="line">B                    #移到前一个字的开头，忽略标点符号 </span><br><span class="line">e                    #移到下一个字的结尾 </span><br><span class="line">E                    #移到下一个字的结尾，忽略标点符号</span><br><span class="line">L                    #移到屏幕的最后一行 </span><br><span class="line">M                    #移到屏幕的中间一行 </span><br><span class="line">H                    #移到屏幕的第一行 </span><br><span class="line"></span><br><span class="line">G                    #移到文件的最后一行</span><br><span class="line">gg                   #移动到文件开头</span><br><span class="line">gd                   #移动到变量定义处</span><br><span class="line">20gg                 #移动到第20行，或则(20G)</span><br><span class="line">20|                  #移动到20列</span><br><span class="line"> </span><br><span class="line">%                    #移动到匹配的括号</span><br><span class="line">(                    #移到句子的开头 </span><br><span class="line">)                    #移到句子的结尾 </span><br><span class="line">&#123;                    #移到段落的开头 </span><br><span class="line">&#125;                    #移到下一个段落的开头 </span><br><span class="line">0(|)                 #移到当前行的第一列 </span><br><span class="line">^                    #移到当前行的第一个非空字符 </span><br><span class="line">$                    #移到当前行的最后一个字符 </span><br><span class="line">+(Enter)             #移到下一行的第一个字符 </span><br><span class="line">-                    #移到前一行的第一个非空字符</span><br><span class="line">&apos;&apos;                   #移动上次光标位置的位置，是两个&apos;</span><br></pre></td></tr></table></figure>
+<h1 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a                    #在光标后插入文本 </span><br><span class="line">A                    #在当前行插入文本 </span><br><span class="line">i                    #在光标前插入文本 </span><br><span class="line">I                    #在当前行前插入文本 </span><br><span class="line">o                    #在当前行的下边插入新行 </span><br><span class="line">O                    #在当前行的上边插入新行 </span><br><span class="line">s                    #删除光标所在处字符，并进入插入模式 </span><br><span class="line">S                    #删除光标所在的行，并进入插入模式</span><br></pre></td></tr></table></figure>
+<h1 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x                    #删除光标处的字符 </span><br><span class="line">dw                   #剪切至下一个字的开头</span><br><span class="line">dG                   #剪切行，直到文件结束 </span><br><span class="line">dd                   #剪切整行</span><br><span class="line">db                   #剪切光标前面的字</span><br><span class="line"></span><br><span class="line">d$                   #从光标处删除到行</span><br><span class="line">:n,md                #从第 m 行开始往前删除 n 行</span><br></pre></td></tr></table></figure>
+<h1 id="修改命令"><a href="#修改命令" class="headerlink" title="修改命令"></a>修改命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cl                   #更改当前字符</span><br><span class="line">cw                   #修改到某个单词的结尾位置</span><br><span class="line">cW                   #修改到某个以空格作为分隔符的单词的结尾位置</span><br><span class="line">cb                   #修改到某个单词的开始位置</span><br><span class="line">cB                   #修改到某个以空格作为分隔符的单词的开始位置</span><br><span class="line">ctc                  #修改当前行直到下一个字符c所出现位置之间的内容</span><br><span class="line">C                    #修改到某一行的结尾</span><br><span class="line">cc                   #修改当前行</span><br></pre></td></tr></table></figure>
+<h1 id="查找与替换"><a href="#查找与替换" class="headerlink" title="查找与替换"></a>查找与替换</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">/text                          #在文件中向前查找 text </span><br><span class="line">?text                          #在文件中向后查找 text </span><br><span class="line">n                              #在同一方向重复查找 </span><br><span class="line">N                              #在相反方向重复查找</span><br><span class="line">f&lt;字符&gt;                         #行内向后搜索&lt;字符&gt;并跳转到第一个匹配的位置(非常实用)</span><br><span class="line">F&lt;字符&gt;                         #在当前行向后查找&lt;字符&gt;并跳转到第一个匹配的位置(非常实用)</span><br><span class="line"></span><br><span class="line">:g/text1/s/text2/text3         #查找包含 text1 的行，用 text3 替换 text2 </span><br><span class="line">:g/text/command                #在所有包含 text 的行运行 command 所表示的命令 </span><br><span class="line">:v/text/command                #在所有不包含 text 的行运行 command 所表示的命令 </span><br><span class="line"></span><br><span class="line">:%s/old/new/g                  #将所有出现的old替换为new</span><br><span class="line">:%s/onward/forward/gi          #将所有onward替换为forward，大小写不敏感</span><br><span class="line">:%s/old/new/gc                 #替换前确认</span><br><span class="line">:2,35s/old/new/g               #将第2行到第35行之间的old替换为new</span><br><span class="line">:5,$s/old/new/g                #将第5行到文件结尾的old替换为new</span><br><span class="line">:%s/^/hello/g                  #在每一行开头加入hello</span><br><span class="line">:%s/$/Harry/g                  #在每一行结尾加入Harry</span><br><span class="line">:%s/ *$//g                     #删除每行末尾无用空格</span><br><span class="line"></span><br><span class="line">:g/string/d                    #删除所有包含string的行</span><br><span class="line">:v/string/d                    #删除所有不包含string的行</span><br><span class="line">:s/Bill/Steve/                 #替换当前行第一个Bill为Steve</span><br><span class="line">:s/Bill/Steve/g                #替换当前行中所有Bill</span><br><span class="line">:%s/Bill/Steve/g               #替换文件中所有Bill</span><br><span class="line">:%s/^M//g                      #删掉DOS保存文件中(^M)</span><br><span class="line">:%s/\r/\r/g                    #Transform DOS carriage returns in returns</span><br><span class="line">:%s#&lt;[^&gt;]\+&gt;##g                #删除html标签但是保留文本</span><br><span class="line">:%s/^\(.*\)\n\1$/\1/           #删除所有连续出现过两次的行，保留一行</span><br><span class="line">Ctrl+a                         #递增光标下的数字</span><br><span class="line">Ctrl+x                         #递减光标下的数字</span><br><span class="line">ggVGg?                         #文本转换为 Rot13</span><br></pre></td></tr></table></figure>
+<h1 id="撤销，重复命令"><a href="#撤销，重复命令" class="headerlink" title="撤销，重复命令"></a>撤销，重复命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">u                #撤消最后一次修改 </span><br><span class="line">U                #撤消当前行的所有修改 </span><br><span class="line">.                #重复最后一次修改 </span><br><span class="line">,                #以相反的方向重复前面的 f、F、t 或 T 查找命令 </span><br><span class="line">;                #重复前面的 f、F、t 或 T 查找命令 </span><br><span class="line">&quot;np              #取回最后第 n 次的删除(缓冲区中存有一定次数的删除内容，一般为 9) </span><br><span class="line">n                #重复前面的 / 或 ? 查找命令 </span><br><span class="line">N                #以相反方向重复前面的 / 或 ? 命令</span><br><span class="line"></span><br><span class="line">ctrl+r           #恢复操作</span><br></pre></td></tr></table></figure>
+<h1 id="大小写转换命令"><a href="#大小写转换命令" class="headerlink" title="大小写转换命令"></a>大小写转换命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">~                   #光标处内容进行大小写转换</span><br><span class="line">Vu                  #整行小写</span><br><span class="line">VU                  #整行大写</span><br><span class="line">g~~                 #整行大小写反转</span><br><span class="line">vEU                 #单词转为大写</span><br><span class="line">vE~                 #单词大小写反转</span><br><span class="line">ggguG               #所有文本小写</span><br><span class="line">gggUG               #所有文本大写</span><br><span class="line"></span><br><span class="line">:set ignorecase     #搜索中忽略大小写</span><br><span class="line">:set smartcase      #搜索中忽略大小写，除非搜索词中存在大小写字母</span><br><span class="line">:%s/\&lt;./\u&amp;/g       #将所有单词首字母大写</span><br><span class="line">:%s/\&lt;./\l&amp;/g       #将所有单词首字母小写</span><br><span class="line">:%s/.*/\u&amp;          #将每行第一个字母大写</span><br><span class="line">:%s/.*/\l&amp;          #将每行第一个字母小写</span><br></pre></td></tr></table></figure>
+<h1 id="屏幕调整"><a href="#屏幕调整" class="headerlink" title="屏幕调整"></a>屏幕调整</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ctrl+e(^e)             #将屏幕上滚一行 </span><br><span class="line">ctrl+y                 #将屏幕下滚一行 </span><br><span class="line">ctrl+u                 #将屏幕上滚半页 </span><br><span class="line">ctrl+d                 #将屏幕下滚半页 </span><br><span class="line">ctrl+b                 #将屏幕上滚一页 </span><br><span class="line">ctrl+f                 #将屏幕下滚一页 </span><br><span class="line">ctrl+l                 #重绘屏幕</span><br></pre></td></tr></table></figure>
+<h1 id="其它命令"><a href="#其它命令" class="headerlink" title="其它命令"></a>其它命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">8zf                    #折叠当前行8行代码</span><br><span class="line">zo                     #打开折叠行(按方向键也可以)</span><br><span class="line">ctrl+o                 #光标返回到以前的位置。相当于光标移动的“撤销”</span><br><span class="line">ctrl+i                 #光标返回到后来的位置。相当于光标移动的“恢复”</span><br><span class="line">ctrl+v                 #批量注释：ctrl+v进入块模式选择，选择要操作的行。按I(在行首插入)，输入//，按Esc结束。</span><br></pre></td></tr></table></figure>
+<h1 id="经验之谈"><a href="#经验之谈" class="headerlink" title="经验之谈"></a>经验之谈</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#通常: &lt;num&gt; + command 是重复多少次命令的意思，如</span><br><span class="line">10k(j)                 #向上(下)移动10行，重复执行k命令10次，下同。</span><br><span class="line">10h(l)                 #向左(右)移动10列</span><br><span class="line">10w(b)                 #向后(前)移动10个word</span><br><span class="line">5cc                    #修改从当前行开始的5行内容</span><br><span class="line">5dd                    #剪切从当前行开始的5行内容</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>来源：<a href="https://goblog.deepzz.com:9010/2016/07/09/24.html" target="_blank" rel="noopener">VIM 学习系列之基本命令，常用命令</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cv.theyear.space/theyear.html/2018/02/12/vim基本命令，常用命令/" data-id="cje43jryc000df42juxtn7y94" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/04/sass入门(四)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">sass 入门（四）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/02/12/vim基本命令，常用命令/">vim 基本命令，常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/04/sass入门(四)/">sass 入门（四）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/02/Angular 参考手册/">Angular 参考手册</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/31/sass入门(三)/">sass 入门（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/24/js 循环延时踩坑/">js 循环延时踩坑</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Wangcch<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

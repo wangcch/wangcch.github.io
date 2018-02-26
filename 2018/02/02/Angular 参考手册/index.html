@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Angular 参考手册 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Angular 指令 Angular 事件 Angular 全局API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular 参考手册">
+<meta property="og:url" content="http://cv.theyear.space/theyear.html/2018/02/02/Angular 参考手册/index.html">
+<meta property="og:site_name" content="BLOG | THEYEAR">
+<meta property="og:description" content="Angular 指令 Angular 事件 Angular 全局API">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-02-05T01:23:37.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular 参考手册">
+<meta name="twitter:description" content="Angular 指令 Angular 事件 Angular 全局API">
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">BLOG | THEYEAR</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://cv.theyear.space/theyear.html"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Angular 参考手册" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/02/Angular 参考手册/" class="article-date">
+  <time datetime="2018-02-01T16:00:00.000Z" itemprop="datePublished">2018-02-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Angular 参考手册
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><a href="#Angular指令">Angular 指令</a></li>
+<li><a href="#Angular事件">Angular 事件</a></li>
+<li><a href="#Angular全局API">Angular 全局API</a></li>
+</ol>
+<a id="more"></a>
+<h1 id="Angular指令"><a href="#Angular指令" class="headerlink" title="Angular指令"></a>Angular指令</h1><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ng-app</td>
+<td>定义应用程序的根元素。</td>
+</tr>
+<tr>
+<td>ng-bind</td>
+<td>绑定 HTML 元素到应用程序数据</td>
+</tr>
+<tr>
+<td>ng-bind-html</td>
+<td>绑定 HTML 元素的 innerHTML 到应用程序数据，并移除 HTML 字符串中危险字符</td>
+</tr>
+<tr>
+<td>ng-bind-template</td>
+<td>规定要使用模板替换的文本内容</td>
+</tr>
+<tr>
+<td>ng-blur</td>
+<td>规定 blur 事件的行为</td>
+</tr>
+<tr>
+<td>ng-change</td>
+<td>规定在内容改变时要执行的表达式</td>
+</tr>
+<tr>
+<td>ng-checked</td>
+<td>规定元素是否被选中</td>
+</tr>
+<tr>
+<td>ng-class</td>
+<td>指定 HTML 元素使用的 CSS 类</td>
+</tr>
+<tr>
+<td>ng-class-even</td>
+<td>类似 ng-class，但只在偶数行起作用</td>
+</tr>
+<tr>
+<td>ng-class-odd</td>
+<td>类似 ng-class，但只在奇数行起作用</td>
+</tr>
+<tr>
+<td>ng-click</td>
+<td>定义元素被点击时的行为</td>
+</tr>
+<tr>
+<td>ng-cloak</td>
+<td>在应用正要加载时防止其闪烁</td>
+</tr>
+<tr>
+<td>ng-controller</td>
+<td>定义应用的控制器对象</td>
+</tr>
+<tr>
+<td>ng-copy</td>
+<td>规定拷贝事件的行为</td>
+</tr>
+<tr>
+<td>ng-csp</td>
+<td>修改内容的安全策略</td>
+</tr>
+<tr>
+<td>ng-cut</td>
+<td>规定剪切事件的行为</td>
+</tr>
+<tr>
+<td>ng-dblclick</td>
+<td>规定双击事件的行为</td>
+</tr>
+<tr>
+<td>ng-disabled</td>
+<td>规定一个元素是否被禁用</td>
+</tr>
+<tr>
+<td>ng-focus</td>
+<td>规定聚焦事件的行为</td>
+</tr>
+<tr>
+<td>ng-form</td>
+<td>指定 HTML 表单继承控制器表单</td>
+</tr>
+<tr>
+<td>ng-hide</td>
+<td>隐藏或显示 HTML 元素</td>
+</tr>
+<tr>
+<td>ng-href</td>
+<td>为 the&lt; a&gt; 元素指定链接</td>
+</tr>
+<tr>
+<td>ng-if</td>
+<td>如果条件为 false 移除 HTML 元素</td>
+</tr>
+<tr>
+<td>ng-include</td>
+<td>在应用中包含 HTML 文件</td>
+</tr>
+<tr>
+<td>ng-init</td>
+<td>定义应用的初始化值</td>
+</tr>
+<tr>
+<td>ng-jq</td>
+<td>定义应用必须使用到的库，如：jQuery</td>
+</tr>
+<tr>
+<td>ng-keydown</td>
+<td>规定按下按键事件的行为</td>
+</tr>
+<tr>
+<td>ng-keypress</td>
+<td>规定按下按键事件的行为</td>
+</tr>
+<tr>
+<td>ng-keyup</td>
+<td>规定松开按键事件的行为</td>
+</tr>
+<tr>
+<td>ng-list</td>
+<td>将文本转换为列表 (数组)</td>
+</tr>
+<tr>
+<td>ng-model</td>
+<td>绑定 HTML 控制器的值到应用数据</td>
+</tr>
+<tr>
+<td>ng-model-options</td>
+<td>规定如何更新模型</td>
+</tr>
+<tr>
+<td>ng-mousedown</td>
+<td>规定按下鼠标按键时的行为</td>
+</tr>
+<tr>
+<td>ng-mouseenter</td>
+<td>规定鼠标指针穿过元素时的行为</td>
+</tr>
+<tr>
+<td>ng-mouseleave</td>
+<td>规定鼠标指针离开元素时的行为</td>
+</tr>
+<tr>
+<td>ng-mousemove</td>
+<td>规定鼠标指针在指定的元素中移动时的行为</td>
+</tr>
+<tr>
+<td>ng-mouseover</td>
+<td>规定鼠标指针位于元素上方时的行为</td>
+</tr>
+<tr>
+<td>ng-mouseup</td>
+<td>规定当在元素上松开鼠标按钮时的行为</td>
+</tr>
+<tr>
+<td>ng-non-bindable</td>
+<td>规定元素或子元素不能绑定数据</td>
+</tr>
+<tr>
+<td>ng-open</td>
+<td>指定元素的 open 属性</td>
+</tr>
+<tr>
+<td>ng-options</td>
+<td>在 <select> 列表中指定 <options></options></select></td>
+</tr>
+<tr>
+<td>ng-paste</td>
+<td>规定粘贴事件的行为</td>
+</tr>
+<tr>
+<td>ng-pluralize</td>
+<td>根据本地化规则显示信息</td>
+</tr>
+<tr>
+<td>ng-readonly</td>
+<td>指定元素的 readonly 属性</td>
+</tr>
+<tr>
+<td>ng-repeat</td>
+<td>定义集合中每项数据的模板</td>
+</tr>
+<tr>
+<td>ng-selected</td>
+<td>指定元素的 selected 属性</td>
+</tr>
+<tr>
+<td>ng-show</td>
+<td>显示或隐藏 HTML 元素</td>
+</tr>
+<tr>
+<td>ng-src</td>
+<td>指定 <img> 元素的 src 属性</td>
+</tr>
+<tr>
+<td>ng-srcset</td>
+<td>指定 <img> 元素的 srcset 属性</td>
+</tr>
+<tr>
+<td>ng-style</td>
+<td>指定元素的 style 属性</td>
+</tr>
+<tr>
+<td>ng-submit</td>
+<td>规定 onsubmit 事件发生时执行的表达式</td>
+</tr>
+<tr>
+<td>ng-switch</td>
+<td>规定显示或隐藏子元素的条件</td>
+</tr>
+<tr>
+<td>ng-transclude</td>
+<td>规定填充的目标位置</td>
+</tr>
+<tr>
+<td>ng-value</td>
+<td>规定 input 元素的值</td>
+</tr>
+</tbody>
+</table>
+<h1 id="Angular事件"><a href="#Angular事件" class="headerlink" title="Angular事件"></a>Angular事件</h1><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ng-click</td>
+<td>定义元素被点击时的行为</td>
+</tr>
+<tr>
+<td>ng-dblclick</td>
+<td>规定双击事件的行为</td>
+</tr>
+<tr>
+<td>ng-mousedown</td>
+<td>规定按下鼠标按键时的行为</td>
+</tr>
+<tr>
+<td>ng-mouseenter</td>
+<td>规定鼠标指针穿过元素时的行为</td>
+</tr>
+<tr>
+<td>ng-mouseleave</td>
+<td>规定鼠标指针离开元素时的行为</td>
+</tr>
+<tr>
+<td>ng-mousemove</td>
+<td>规定鼠标指针在指定的元素中移动时的行为</td>
+</tr>
+<tr>
+<td>ng-mouseover</td>
+<td>规定鼠标指针位于元素上方时的行为</td>
+</tr>
+<tr>
+<td>ng-mouseup</td>
+<td>规定当在元素上松开鼠标按钮时的行为</td>
+</tr>
+<tr>
+<td>ng-keydown</td>
+<td>规定按下按键事件的行为</td>
+</tr>
+<tr>
+<td>ng-keypress</td>
+<td>规定按下按键事件的行为</td>
+</tr>
+<tr>
+<td>ng-keyup</td>
+<td>规定松开按键事件的行为</td>
+</tr>
+<tr>
+<td>ng-change</td>
+<td>规定在内容改变时要执行的表达式</td>
+</tr>
+</tbody>
+</table>
+<h1 id="Angular全局API"><a href="#Angular全局API" class="headerlink" title="Angular全局API"></a>Angular全局API</h1><h2 id="转化"><a href="#转化" class="headerlink" title="转化"></a>转化</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>angular.lowercase()</td>
+<td>将字符串转换为小写</td>
+</tr>
+<tr>
+<td>angular.uppercase()</td>
+<td>将字符串转换为大写</td>
+</tr>
+<tr>
+<td>angular.copy()</td>
+<td>数组或对象深度拷贝</td>
+</tr>
+<tr>
+<td>angular.forEach()</td>
+<td>对象或数组的迭代函数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>angular.isArray()</td>
+<td>如果引用的是数组返回 true</td>
+</tr>
+<tr>
+<td>angular.isDate()</td>
+<td>如果引用的是日期返回 true</td>
+</tr>
+<tr>
+<td>angular.isDefined()</td>
+<td>如果引用的已定义返回 true</td>
+</tr>
+<tr>
+<td>angular.isElement()</td>
+<td>如果引用的是 DOM 元素返回 true</td>
+</tr>
+<tr>
+<td>angular.isFunction()</td>
+<td>如果引用的是函数返回 true</td>
+</tr>
+<tr>
+<td>angular.isNumber()</td>
+<td>如果引用的是数字返回 true</td>
+</tr>
+<tr>
+<td>angular.isObject()</td>
+<td>如果引用的是对象返回 true</td>
+</tr>
+<tr>
+<td>angular.isString()</td>
+<td>如果引用的是字符串返回 true</td>
+</tr>
+<tr>
+<td>angular.isUndefined()</td>
+<td>如果引用的未定义返回 true</td>
+</tr>
+<tr>
+<td>angular.equals()</td>
+<td>如果两个对象相等返回 true</td>
+</tr>
+</tbody>
+</table>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>angular.fromJson()</td>
+<td>反序列化 JSON 字符串</td>
+</tr>
+<tr>
+<td>angular.toJson()</td>
+<td>序列化 JSON 字符串</td>
+</tr>
+</tbody>
+</table>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><table>
+<thead>
+<tr>
+<th>API</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>angular.bootstrap()</td>
+<td>手动启动 AngularJS</td>
+</tr>
+<tr>
+<td>angular.element()</td>
+<td>包裹着一部分DOM element或者是HTML字符串，把它作为一个jQuery元素来处理。</td>
+</tr>
+<tr>
+<td>angular.module()</td>
+<td>创建，注册或检索 AngularJS 模块</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><a href="http://www.runoob.com/angularjs/angularjs-reference.html" target="_blank" rel="noopener">AngularJS 参考手册</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cv.theyear.space/theyear.html/2018/02/02/Angular 参考手册/" data-id="cje43jrxr0000f42jsvoj734f" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/04/sass入门(四)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          sass 入门（四）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/31/sass入门(三)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">sass 入门（三）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/02/12/vim基本命令，常用命令/">vim 基本命令，常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/04/sass入门(四)/">sass 入门（四）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/02/Angular 参考手册/">Angular 参考手册</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/31/sass入门(三)/">sass 入门（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/24/js 循环延时踩坑/">js 循环延时踩坑</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Wangcch<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

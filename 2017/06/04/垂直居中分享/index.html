@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>CSS 几种垂直居中分享 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="分享几种自己积累的垂直居中方法，感觉目前实现垂直居中的一种是绝对定位，物理位移来实现。另一种是通过特定布局属性来实现，如文中提到的flex弹性布局和table表格布局实现。（努力后续持续更新…）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 几种垂直居中分享">
+<meta property="og:url" content="http://cv.theyear.space/theyear.html/2017/06/04/垂直居中分享/index.html">
+<meta property="og:site_name" content="BLOG | THEYEAR">
+<meta property="og:description" content="分享几种自己积累的垂直居中方法，感觉目前实现垂直居中的一种是绝对定位，物理位移来实现。另一种是通过特定布局属性来实现，如文中提到的flex弹性布局和table表格布局实现。（努力后续持续更新…）">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://120.77.32.127/ty_home//blogImg/2017060401.png">
+<meta property="og:updated_time" content="2017-08-20T08:19:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 几种垂直居中分享">
+<meta name="twitter:description" content="分享几种自己积累的垂直居中方法，感觉目前实现垂直居中的一种是绝对定位，物理位移来实现。另一种是通过特定布局属性来实现，如文中提到的flex弹性布局和table表格布局实现。（努力后续持续更新…）">
+<meta name="twitter:image" content="http://120.77.32.127/ty_home//blogImg/2017060401.png">
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">BLOG | THEYEAR</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://cv.theyear.space/theyear.html"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-垂直居中分享" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/04/垂直居中分享/" class="article-date">
+  <time datetime="2017-06-03T16:00:00.000Z" itemprop="datePublished">2017-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS 几种垂直居中分享
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>分享几种自己积累的垂直居中方法，感觉目前实现垂直居中的一种是绝对定位，物理位移来实现。另一种是通过特定布局属性来实现，如文中提到的flex弹性布局和table表格布局实现。<br>（努力后续持续更新…）<br><a id="more"></a></p>
+<h2 id="绝对定位-（自适应）"><a href="#绝对定位-（自适应）" class="headerlink" title="绝对定位 （自适应）"></a>绝对定位 （自适应）</h2><p>DEMO01:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Vertical center demo01&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+    div{
+         width: 200px;
+         height: 200px;
+         background-color: #00f;
+         position: absolute;
+         margin: auto;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>这种很容易理解，和水平居中（margin:auto）差不多，都是自适应。top和bottom自适应实现垂直居中，left和right自适应实现水平居中。重点是绝对定位，案例相对浏览器定位。</p>
+<p><img src="http://120.77.32.127/ty_home//blogImg/2017060401.png" alt="demo1"><br>先上一张图吧，后面和这效果差不多就不上了:(</p>
+<h2 id="绝对定位-（50-定位）"><a href="#绝对定位-（50-定位）" class="headerlink" title="绝对定位 （50%定位）"></a>绝对定位 （50%定位）</h2><p>DEMO02:<br>基于demo01的基础上样式如下</p>
+<pre><code>div{
+    width: 200px;
+    height:200px;
+    background-color: #00f;
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+    left: 50%;
+    margin-left: -100px;
+}
+</code></pre><p>(50%定位)主要就是，绝对定位，demo02相对浏览器定位。<br><br>div正方形上面距浏览器上边，浏览器高度的一半距离。<br><br>div正方形左边距浏览器左边，浏览器宽度的一半的距离。<br><br>此时可以知道div正方形的<strong>左上顶点</strong>位于浏览器的中心。所以之后的margin相对自己位移就很容易理解了，位移距离是div本身的一半。<br><br><strong>缺点</strong>：父元素空间不够时, 子元素可能不可见(当浏览器窗口缩小时,滚动条不出现时).如果子元素设置了overflow:auto, 则高度不够时, 会出现滚动条.</p>
+<h2 id="弹性布局-（flex）"><a href="#弹性布局-（flex）" class="headerlink" title="弹性布局 （flex）"></a>弹性布局 （flex）</h2><p>DEMO03:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;vertical center demo03&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+    html,body{
+    height: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column; //    灵活的项目将垂直显示，正如一个列一样。
+    -webkit-flex-direction: column;
+    justify-content: center; // 垂直居中
+    -webkit-justify-content: center;
+    align-items: center; //水平居中
+    -webkit-align-items: center;
+}
+div{
+    width: 200px;
+    height: 200px;
+    background-color: #00f;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>采用Flex布局的元素，称为Flex容器（flex container）。它的所有子元素自动成为容器成员，称为Flex项目（flex item）。而垂直实现也是通过容器的特定属性。<br><br>flex布局详细讲解<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">flex布局</a></p>
+<h2 id="表格布局-（table）"><a href="#表格布局-（table）" class="headerlink" title="表格布局 （table）"></a>表格布局 （table）</h2><p>DEMO04:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;demo04&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+    *{margin:0;padding: 0;} //初始化。消除滚动条
+    html,body{
+        height: 100%;
+    }
+    .box{
+        width: 100%;
+        height: 100%;
+        display: table;
+    }
+    .center{
+        display: table-cell;
+        vertical-align: middle;
+
+        text-align: center;
+    }
+    .demo{
+        width: 200px;
+        height: 200px;
+        background-color: rgb(0,0,0);
+        margin:auto;
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;div class=&quot;center&quot;&gt;
+            &lt;div class=&quot;demo&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>display:table 使div:box元素作为块级元素显示，表格后带有换行符<br><br>display:table-cell 使div:center元素作为一个表格单元格显示，此时div:center会填满div:box。<br><br>vertical-align:middle实现父元素垂直中部显示。</p>
+<p>努力继续更新。感谢：）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cv.theyear.space/theyear.html/2017/06/04/垂直居中分享/" data-id="cje43jryf000gf42jqrjvz7mx" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/05/移动端viewport/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          HTML 移动前端viewport
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/02/visibility与display的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">CSS visibility与display可见性区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/02/12/vim基本命令，常用命令/">vim 基本命令，常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/04/sass入门(四)/">sass 入门（四）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/02/Angular 参考手册/">Angular 参考手册</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/31/sass入门(三)/">sass 入门（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/24/js 循环延时踩坑/">js 循环延时踩坑</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Wangcch<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

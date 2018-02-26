@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>CSS visibility与display可见性区别 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="主要区别： visibility:hidden//设置的不可见的元素任然会占据页面空间。      display:none     //因display属性主要是框类型，none 隐藏元素则不会占据原有空间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS visibility与display可见性区别">
+<meta property="og:url" content="http://cv.theyear.space/theyear.html/2017/06/02/visibility与display的区别/index.html">
+<meta property="og:site_name" content="BLOG | THEYEAR">
+<meta property="og:description" content="主要区别： visibility:hidden//设置的不可见的元素任然会占据页面空间。      display:none     //因display属性主要是框类型，none 隐藏元素则不会占据原有空间">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://120.77.32.127/ty_home/blogImg/2017060201.png">
+<meta property="og:image" content="http://120.77.32.127/ty_home//blogImg/2017060202.png">
+<meta property="og:image" content="http://120.77.32.127/ty_home//blogImg/2017060203.png">
+<meta property="og:updated_time" content="2017-08-20T08:19:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS visibility与display可见性区别">
+<meta name="twitter:description" content="主要区别： visibility:hidden//设置的不可见的元素任然会占据页面空间。      display:none     //因display属性主要是框类型，none 隐藏元素则不会占据原有空间">
+<meta name="twitter:image" content="http://120.77.32.127/ty_home/blogImg/2017060201.png">
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">BLOG | THEYEAR</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://cv.theyear.space/theyear.html"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-visibility与display的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/02/visibility与display的区别/" class="article-date">
+  <time datetime="2017-06-01T16:00:00.000Z" itemprop="datePublished">2017-06-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS visibility与display可见性区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>主要区别：<br></p>
+<pre><code>visibility:hidden//设置的不可见的元素任然会占据页面空间。    
+ display:none     //因display属性主要是框类型，none 隐藏元素则不会占据原有空间
+</code></pre><a id="more"></a>
+<p>以下详细</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>visibility属性规定元素是否可见。<br><br>display属性规定应该生成的框的类型。<br></p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><p>都可以显示隐藏元素。<br></p>
+<h3 id="visibillity"><a href="#visibillity" class="headerlink" title="visibillity"></a><a href="http://www.w3school.com.cn/cssref/pr_class_visibility.asp" target="_blank" rel="noopener">visibillity</a></h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>visibility</td>
+<td>默认值。元素是可见的</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>元素是不可见的。</td>
+</tr>
+<tr>
+<td>collapse</td>
+<td>当在表格元素中使用时，此值可删除一行或一列，但是它不会影响表格的布局。被行或列占据的空间会留给其他内容使用。如果此值被用在其他的元素上，会呈现为 “hidden”。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 visibility 属性的值。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="display"><a href="#display" class="headerlink" title="display"></a><a href="http://www.w3school.com.cn/cssref/pr_class_display.asp" target="_blank" rel="noopener">display</a></h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>此元素不会被显示</td>
+</tr>
+</tbody>
+</table>
+<p>当然display还有很多属性（可参考<a href="http://www.w3school.com.cn" target="_blank" rel="noopener">W3school</a>最近好像改版了，比原来好看多了），和visibility的区别主要也是可见性。</p>
+<h3 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h3><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;visibility&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin: 10px;
+    }
+    #b1{
+
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;b1&quot;&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><img src="http://120.77.32.127/ty_home/blogImg/2017060201.png" alt=""></p>
+<h3 id="visibility"><a href="#visibility" class="headerlink" title="visibility"></a>visibility</h3><pre><code>#b1{
+    visibility:hidden;
+}
+</code></pre><p><img src="http://120.77.32.127/ty_home//blogImg/2017060202.png" alt=""></p>
+<h3 id="display-1"><a href="#display-1" class="headerlink" title="display"></a>display</h3><pre><code>#b1{
+    display:none;
+}
+</code></pre><p><img src="http://120.77.32.127/ty_home//blogImg/2017060203.png" alt=""></p>
+<p>感谢：）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cv.theyear.space/theyear.html/2017/06/02/visibility与display的区别/" data-id="cje43jrye000ff42jx9d6eyio" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/04/垂直居中分享/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          CSS 几种垂直居中分享
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/01/CSS-img等比例缩放/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">CSS img 等比例缩放</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/02/12/vim基本命令，常用命令/">vim 基本命令，常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/04/sass入门(四)/">sass 入门（四）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/02/Angular 参考手册/">Angular 参考手册</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/31/sass入门(三)/">sass 入门（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/24/js 循环延时踩坑/">js 循环延时踩坑</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Wangcch<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
