@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel=manifest href=/manifest.json>
   <meta charset="utf-8">
   
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 实现简单loading">
-<meta property="og:url" content="http://cv.theyear.space/theyear.html/2017/09/27/CSS实现简单loading/index.html">
+<meta property="og:url" content="http://wangcch.cc/2017/09/27/CSS实现简单loading/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
 <meta property="og:description" content="是在一个微信小程序中需要实现列表内的loading，开始是使用svg动图来实现来实现loading效果，但是不同手机和不同操作系统都有不同程度的毛边。最后通过实现css loading 效果解决问题。">
 <meta property="og:locale" content="zh-cn">
@@ -56,8 +56,8 @@
           <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
-      <div>
-          <a href="/"  id="nav-title">BLOG | THEYEAR</a>
+      <div id="nav-name">
+          <a href="/"  id="nav-title">Wangcch'Blog</a><a href="https://wangcch.cc"  id="nav-title">&nbsp;|&nbsp;THEYEAR</a>
       </div>
     </div>
   </div>
@@ -96,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cv.theyear.space/theyear.html/2017/09/27/CSS实现简单loading/" data-id="cje519cq50004ih2jr9yfmwhk" class="article-share-link">Teilen</a>
+      <a data-url="http://wangcch.cc/2017/09/27/CSS实现简单loading/" data-id="cje5357xj000gw02j5xzuw1r0" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
@@ -235,5 +235,10 @@
 
 
   </div>
-</body>
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1519702106298')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel=manifest href=/manifest.json>
   <meta charset="utf-8">
   
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="HTML,viewport">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML 移动前端viewport">
-<meta property="og:url" content="http://cv.theyear.space/theyear.html/2017/06/05/移动端viewport/index.html">
+<meta property="og:url" content="http://wangcch.cc/2017/06/05/移动端viewport/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
 <meta property="og:description" content="在开发响应式网站时Wangcch’s CV，并未在移动窗口进行测试。结果在服务器部署测试时手机并没有自适应窗口，只是显示网页缩放版本。后来查资料，一行代码解决… &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width,  initial-scale=1.0, user-scalable=no, minimum-scal">
 <meta property="og:locale" content="zh-cn">
@@ -56,8 +56,8 @@
           <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
-      <div>
-          <a href="/"  id="nav-title">BLOG | THEYEAR</a>
+      <div id="nav-name">
+          <a href="/"  id="nav-title">Wangcch'Blog</a><a href="https://wangcch.cc"  id="nav-title">&nbsp;|&nbsp;THEYEAR</a>
       </div>
     </div>
   </div>
@@ -152,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cv.theyear.space/theyear.html/2017/06/05/移动端viewport/" data-id="cje519cqn000pih2j8byfg5nm" class="article-share-link">Teilen</a>
+      <a data-url="http://wangcch.cc/2017/06/05/移动端viewport/" data-id="cje5357ya001mw02jratpvzbj" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/viewport/">viewport</a></li></ul>
@@ -291,5 +291,10 @@
 
 
   </div>
-</body>
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1519702106298')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
 </html>

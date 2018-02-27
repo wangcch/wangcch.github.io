@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel=manifest href=/manifest.json>
   <meta charset="utf-8">
   
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="CSS,float">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 清除float浮动">
-<meta property="og:url" content="http://cv.theyear.space/theyear.html/2017/06/12/清除浮动/index.html">
+<meta property="og:url" content="http://wangcch.cc/2017/06/12/清除浮动/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
 <meta property="og:description" content="使用浮动的情况有很多，比如页面布局(float:left float:right)、取消块元素的独占一行等等。浮动对页面的主要影响是，当父盒子没有设置高，子盒子在父盒子中进行浮动。由于父盒子的高度为0，下面的元素会自动补位。这时候需要清除浮动影响。还有一点是今天遇到的所以准备整理一下，就是有些响应式界面并不是清除浮动，而是对浮动的去除。">
 <meta property="og:locale" content="zh-cn">
@@ -56,8 +56,8 @@
           <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
-      <div>
-          <a href="/"  id="nav-title">BLOG | THEYEAR</a>
+      <div id="nav-name">
+          <a href="/"  id="nav-title">Wangcch'Blog</a><a href="https://wangcch.cc"  id="nav-title">&nbsp;|&nbsp;THEYEAR</a>
       </div>
     </div>
   </div>
@@ -146,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cv.theyear.space/theyear.html/2017/06/12/清除浮动/" data-id="cje519cqm000oih2j514nj70y" class="article-share-link">Teilen</a>
+      <a data-url="http://wangcch.cc/2017/06/12/清除浮动/" data-id="cje5357y9001jw02js2n9x4g1" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/float/">float</a></li></ul>
@@ -285,5 +285,10 @@
 
 
   </div>
-</body>
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1519702106298')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
 </html>

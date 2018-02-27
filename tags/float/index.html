@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel=manifest href=/manifest.json>
   <meta charset="utf-8">
   
 
@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="BLOG | THEYEAR">
-<meta property="og:url" content="http://cv.theyear.space/theyear.html/tags/float/index.html">
+<meta property="og:url" content="http://wangcch.cc/tags/float/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
 <meta property="og:locale" content="zh-cn">
 <meta name="twitter:card" content="summary">
@@ -51,8 +51,8 @@
           <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
-      <div>
-          <a href="/"  id="nav-title">BLOG | THEYEAR</a>
+      <div id="nav-name">
+          <a href="/"  id="nav-title">Wangcch'Blog</a><a href="https://wangcch.cc"  id="nav-title">&nbsp;|&nbsp;THEYEAR</a>
       </div>
     </div>
   </div>
@@ -201,5 +201,10 @@
 
 
   </div>
-</body>
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1519702106298')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
 </html>

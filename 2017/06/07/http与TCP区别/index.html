@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel=manifest href=/manifest.json>
   <meta charset="utf-8">
   
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="network,HTTP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP与TCP的区别">
-<meta property="og:url" content="http://cv.theyear.space/theyear.html/2017/06/07/http与TCP区别/index.html">
+<meta property="og:url" content="http://wangcch.cc/2017/06/07/http与TCP区别/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
 <meta property="og:description" content="TCP是传输层，http是应用层。http是要基于TCP连接基础上的，TCP就是单纯建立连接，不涉及任何我们需要请求的实际数据，简单的传输。http是用来收发数据，即实际应用。">
 <meta property="og:locale" content="zh-cn">
@@ -56,8 +56,8 @@
           <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
-      <div>
-          <a href="/"  id="nav-title">BLOG | THEYEAR</a>
+      <div id="nav-name">
+          <a href="/"  id="nav-title">Wangcch'Blog</a><a href="https://wangcch.cc"  id="nav-title">&nbsp;|&nbsp;THEYEAR</a>
       </div>
     </div>
   </div>
@@ -124,7 +124,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cv.theyear.space/theyear.html/2017/06/07/http与TCP区别/" data-id="cje519cq90008ih2juqogmh0g" class="article-share-link">Teilen</a>
+      <a data-url="http://wangcch.cc/2017/06/07/http与TCP区别/" data-id="cje5357xp000mw02jd3l3se14" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -263,5 +263,10 @@
 
 
   </div>
-</body>
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1519702106298')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
 </html>

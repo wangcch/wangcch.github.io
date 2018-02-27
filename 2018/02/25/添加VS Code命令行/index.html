@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel=manifest href=/manifest.json>
   <meta charset="utf-8">
   
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="vs code">
 <meta property="og:type" content="article">
 <meta property="og:title" content="添加VS Code命令行">
-<meta property="og:url" content="http://cv.theyear.space/theyear.html/2018/02/25/添加VS Code命令行/index.html">
+<meta property="og:url" content="http://wangcch.cc/2018/02/25/添加VS Code命令行/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
 <meta property="og:description" content="习惯用atom的都知道，可以在文件目录中启动atom，非常方便。使用vs却发现没有。网上搜索配置.bash_profile，然而我没有这个文件，手动添加后可以使用，但是终端重启后又回失效。">
 <meta property="og:locale" content="zh-cn">
@@ -56,8 +56,8 @@
           <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
-      <div>
-          <a href="/"  id="nav-title">BLOG | THEYEAR</a>
+      <div id="nav-name">
+          <a href="/"  id="nav-title">Wangcch'Blog</a><a href="https://wangcch.cc"  id="nav-title">&nbsp;|&nbsp;THEYEAR</a>
       </div>
     </div>
   </div>
@@ -106,7 +106,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cv.theyear.space/theyear.html/2018/02/25/添加VS Code命令行/" data-id="cje519cql000nih2j19r8a8dc" class="article-share-link">Teilen</a>
+      <a data-url="http://wangcch.cc/2018/02/25/添加VS Code命令行/" data-id="cje5357yd001uw02jwokry32u" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vs-code/">vs code</a></li></ul>
@@ -245,5 +245,10 @@
 
 
   </div>
-</body>
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1519702106298')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
 </html>

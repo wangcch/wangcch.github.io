@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel=manifest href=/manifest.json>
   <meta charset="utf-8">
   
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="js,setTimeout">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js 循环延时踩坑">
-<meta property="og:url" content="http://cv.theyear.space/theyear.html/2018/01/24/js 循环延时踩坑/index.html">
+<meta property="og:url" content="http://wangcch.cc/2018/01/24/js 循环延时踩坑/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
 <meta property="og:description" content="为什么遇到循环延时操作了。一切源于在小程序开发过程中循环生成多个二维码事件，二维码画图太慢，在读取canvas画图地址时，不给一定盾延时是无法读取到图片地址的。再加上小程序不支持多线程。画图需要一定的时间，又处于占用时期。基本情况就是能生成第一个二维码，之后都读取不到地址。">
 <meta property="og:locale" content="zh-cn">
@@ -56,8 +56,8 @@
           <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
-      <div>
-          <a href="/"  id="nav-title">BLOG | THEYEAR</a>
+      <div id="nav-name">
+          <a href="/"  id="nav-title">Wangcch'Blog</a><a href="https://wangcch.cc"  id="nav-title">&nbsp;|&nbsp;THEYEAR</a>
       </div>
     </div>
   </div>
@@ -113,7 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cv.theyear.space/theyear.html/2018/01/24/js 循环延时踩坑/" data-id="cje519cqe000fih2jy7pgk5w7" class="article-share-link">Teilen</a>
+      <a data-url="http://wangcch.cc/2018/01/24/js 循环延时踩坑/" data-id="cje5357xr000ow02j4luwhvl7" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/setTimeout/">setTimeout</a></li></ul>
@@ -252,5 +252,10 @@
 
 
   </div>
-</body>
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1519702106298')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
 </html>

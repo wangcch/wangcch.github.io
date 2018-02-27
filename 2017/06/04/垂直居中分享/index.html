@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel=manifest href=/manifest.json>
   <meta charset="utf-8">
   
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="CSS,center">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 几种垂直居中分享">
-<meta property="og:url" content="http://cv.theyear.space/theyear.html/2017/06/04/垂直居中分享/index.html">
+<meta property="og:url" content="http://wangcch.cc/2017/06/04/垂直居中分享/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
 <meta property="og:description" content="分享几种自己积累的垂直居中方法，感觉目前实现垂直居中的一种是绝对定位，物理位移来实现。另一种是通过特定布局属性来实现，如文中提到的flex弹性布局和table表格布局实现。（努力后续持续更新…）">
 <meta property="og:locale" content="zh-cn">
@@ -58,8 +58,8 @@
           <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
-      <div>
-          <a href="/"  id="nav-title">BLOG | THEYEAR</a>
+      <div id="nav-name">
+          <a href="/"  id="nav-title">Wangcch'Blog</a><a href="https://wangcch.cc"  id="nav-title">&nbsp;|&nbsp;THEYEAR</a>
       </div>
     </div>
   </div>
@@ -204,7 +204,7 @@ div{
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cv.theyear.space/theyear.html/2017/06/04/垂直居中分享/" data-id="cje519cql000mih2jg4mkj2ki" class="article-share-link">Teilen</a>
+      <a data-url="http://wangcch.cc/2017/06/04/垂直居中分享/" data-id="cje5357y30016w02jrqer7j92" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/center/">center</a></li></ul>
@@ -343,5 +343,10 @@ div{
 
 
   </div>
-</body>
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1519702106298')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
 </html>
