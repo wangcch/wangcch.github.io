@@ -1027,15 +1027,12 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #2d2d2d;
-  margin: 0 -20px;
-  padding: 15px 20px;
-  border-style: solid;
-  border-color: #ddd;
-  border-width: 1px 0;
-  overflow: auto;
-  color: #ccc;
-  line-height: 22.400000000000002px;
+  position: relative;
+  margin: 1em 15px;
+  border-radius: 3px;
+  line-height: 1.1em;
+  background-color: #f8f8f8;
+  overflow-x: auto;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
@@ -1054,11 +1051,6 @@ a.article-title:hover {
 .article-entry pre code {
   background: none;
   text-shadow: none;
-  padding: 0;
-}
-.article-entry .highlight pre {
-  border: none;
-  margin: 0;
   padding: 0;
 }
 .article-entry .highlight table {
@@ -1120,11 +1112,6 @@ a.article-title:hover {
 }
 .article-entry .gist .gist-file .gist-data .line-data {
   padding: 0 !important;
-}
-.article-entry .gist .gist-file .highlight {
-  margin: 0;
-  padding: 0;
-  border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
   background: #2d2d2d;

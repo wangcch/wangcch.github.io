@@ -8,13 +8,14 @@
   <title>js 循环延时踩坑 | BLOG | THEYEAR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="为什么遇到循环延时操作了。一切源于在小程序开发过程中循环生成多个二维码事件，二维码画图太慢，在读取canvas画图地址时，不给一定盾延时是无法读取到图片地址的。再加上小程序不支持多线程。画图需要一定的时间，又处于占用时期。基本情况就是能生成第一个二维码，之后都读取不到地址。">
+<meta name="keywords" content="js,setTimeout">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js 循环延时踩坑">
 <meta property="og:url" content="http://cv.theyear.space/theyear.html/2018/01/24/js 循环延时踩坑/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
 <meta property="og:description" content="为什么遇到循环延时操作了。一切源于在小程序开发过程中循环生成多个二维码事件，二维码画图太慢，在读取canvas画图地址时，不给一定盾延时是无法读取到图片地址的。再加上小程序不支持多线程。画图需要一定的时间，又处于占用时期。基本情况就是能生成第一个二维码，之后都读取不到地址。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-01-24T07:53:34.544Z">
+<meta property="og:updated_time" content="2018-02-27T02:38:38.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js 循环延时踩坑">
 <meta name="twitter:description" content="为什么遇到循环延时操作了。一切源于在小程序开发过程中循环生成多个二维码事件，二维码画图太慢，在读取canvas画图地址时，不给一定盾延时是无法读取到图片地址的。再加上小程序不支持多线程。画图需要一定的时间，又处于占用时期。基本情况就是能生成第一个二维码，之后都读取不到地址。">
@@ -68,6 +69,10 @@
   <time datetime="2018-01-23T16:00:00.000Z" itemprop="datePublished">2018-01-24</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -108,9 +113,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cv.theyear.space/theyear.html/2018/01/24/js 循环延时踩坑/" data-id="cje4h8t5l0007672j6ljcn2m5" class="article-share-link">Teilen</a>
+      <a data-url="http://cv.theyear.space/theyear.html/2018/01/24/js 循环延时踩坑/" data-id="cje519cqe000fih2jy7pgk5w7" class="article-share-link">Teilen</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/setTimeout/">setTimeout</a></li></ul>
+
     </footer>
   </div>
   
@@ -142,12 +149,33 @@
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/sass/">sass</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/Vue/">Vue</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/center/">center</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/display/">display</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setTimeout/">setTimeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport/">viewport</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visibility/">visibility</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-code/">vs code</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/network/" style="font-size: 15px;">network</a> <a href="/tags/note/" style="font-size: 17.5px;">note</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/sass/" style="font-size: 17.5px;">sass</a> <a href="/tags/setTimeout/" style="font-size: 10px;">setTimeout</a> <a href="/tags/viewport/" style="font-size: 10px;">viewport</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/visibility/" style="font-size: 10px;">visibility</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -212,7 +240,7 @@
 </nav>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
