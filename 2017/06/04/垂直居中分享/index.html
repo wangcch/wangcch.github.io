@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head><link rel=manifest href=/manifest.json>
+<head>
   <meta charset="utf-8">
   
 
   
   <title>CSS 几种垂直居中分享 | BLOG | THEYEAR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="分享几种自己积累的垂直居中方法，感觉目前实现垂直居中的一种是绝对定位，物理位移来实现。另一种是通过特定布局属性来实现，如文中提到的flex弹性布局和table表格布局实现。（努力后续持续更新…）">
-<meta name="keywords" content="CSS,center">
+  <meta name="keywords" content="CSS,center">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 几种垂直居中分享">
 <meta property="og:url" content="http://wangcch.cc/2017/06/04/垂直居中分享/index.html">
 <meta property="og:site_name" content="BLOG | THEYEAR">
-<meta property="og:description" content="分享几种自己积累的垂直居中方法，感觉目前实现垂直居中的一种是绝对定位，物理位移来实现。另一种是通过特定布局属性来实现，如文中提到的flex弹性布局和table表格布局实现。（努力后续持续更新…）">
-<meta property="og:locale" content="zh-cn">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://120.77.32.127/ty_home//blogImg/2017060401.png">
 <meta property="og:updated_time" content="2018-02-27T02:37:19.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 几种垂直居中分享">
-<meta name="twitter:description" content="分享几种自己积累的垂直居中方法，感觉目前实现垂直居中的一种是绝对定位，物理位移来实现。另一种是通过特定布局属性来实现，如文中提到的flex弹性布局和table表格布局实现。（努力后续持续更新…）">
 <meta name="twitter:image" content="http://120.77.32.127/ty_home//blogImg/2017060401.png">
   
     <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
@@ -91,7 +88,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>分享几种自己积累的垂直居中方法，感觉目前实现垂直居中的一种是绝对定位，物理位移来实现。另一种是通过特定布局属性来实现，如文中提到的flex弹性布局和table表格布局实现。<br>（努力后续持续更新…）<br><a id="more"></a></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <p="">分享几种自己积累的垂直居中方法，感觉目前实现垂直居中的一种是绝对定位，物理位移来实现。另一种是通过特定布局属性来实现，如文中提到的flex弹性布局和table表格布局实现。<br>（努力后续持续更新…）<br><a id="more"></a><p></p>
 <h2 id="绝对定位-（自适应）"><a href="#绝对定位-（自适应）" class="headerlink" title="绝对定位 （自适应）"></a>绝对定位 （自适应）</h2><p>DEMO01:</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -117,7 +114,7 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p>这种很容易理解，和水平居中（margin:auto）差不多，都是自适应。top和bottom自适应实现垂直居中，left和right自适应实现水平居中。重点是绝对定位，案例相对浏览器定位。</p>
-<p><img src="http://120.77.32.127/ty_home//blogImg/2017060401.png" alt="demo1"><br>先上一张图吧，后面和这效果差不多就不上了:(</p>
+<p><a href="http://120.77.32.127/ty_home//blogImg/2017060401.png" title="demo1" class="gallery-item" target="_blank" rel="noopener"><img src="http://120.77.32.127/ty_home//blogImg/2017060401.png" alt="demo1"></a><br>先上一张图吧，后面和这效果差不多就不上了:(</p>
 <h2 id="绝对定位-（50-定位）"><a href="#绝对定位-（50-定位）" class="headerlink" title="绝对定位 （50%定位）"></a>绝对定位 （50%定位）</h2><p>DEMO02:<br>基于demo01的基础上样式如下</p>
 <pre><code>div{
     width: 200px;
@@ -200,11 +197,16 @@ div{
 &lt;/html&gt;
 </code></pre><p>display:table 使div:box元素作为块级元素显示，表格后带有换行符<br><br>display:table-cell 使div:center元素作为一个表格单元格显示，此时div:center会填满div:box。<br><br>vertical-align:middle实现父元素垂直中部显示。</p>
 <p>努力继续更新。感谢：）</p>
-
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangcch.cc/2017/06/04/垂直居中分享/" data-id="cje5357y30016w02jrqer7j92" class="article-share-link">Teilen</a>
+      <a data-url="http://wangcch.cc/2017/06/04/垂直居中分享/" data-id="cje8ogysi0015yf2jge3cthz3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/center/">center</a></li></ul>
@@ -216,7 +218,7 @@ div{
 <nav id="article-nav">
   
     <a href="/2017/06/05/移动端viewport/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           HTML 移动前端viewport
@@ -226,7 +228,7 @@ div{
   
   
     <a href="/2017/06/02/visibility与display的区别/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">CSS visibility与display可见性区别</div>
     </a>
   
@@ -241,9 +243,9 @@ div{
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/sass/">sass</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/Vue/">Vue</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/sass/">sass</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/node-js/">node.js</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a></li></ul>
     </div>
   </div>
 
@@ -251,9 +253,9 @@ div{
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/center/">center</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/display/">display</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setTimeout/">setTimeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport/">viewport</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visibility/">visibility</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-code/">vs code</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/center/">center</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheerio/">cheerio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/display/">display</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fs/">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setTimeout/">setTimeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport/">viewport</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visibility/">visibility</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-code/">vs code</a></li></ul>
     </div>
   </div>
 
@@ -261,18 +263,18 @@ div{
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/network/" style="font-size: 15px;">network</a> <a href="/tags/note/" style="font-size: 17.5px;">note</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/sass/" style="font-size: 17.5px;">sass</a> <a href="/tags/setTimeout/" style="font-size: 10px;">setTimeout</a> <a href="/tags/viewport/" style="font-size: 10px;">viewport</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/visibility/" style="font-size: 10px;">visibility</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a>
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/network/" style="font-size: 15px;">network</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/note/" style="font-size: 17.5px;">note</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/sass/" style="font-size: 17.5px;">sass</a> <a href="/tags/setTimeout/" style="font-size: 10px;">setTimeout</a> <a href="/tags/viewport/" style="font-size: 10px;">viewport</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/visibility/" style="font-size: 10px;">visibility</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
     </div>
   </div>
 
@@ -280,9 +282,13 @@ div{
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/01/node记一次爬虫/">node 记一次爬虫</a>
+          </li>
         
           <li>
             <a href="/2018/02/26/Vue-cli API代理/">vue-cli API代理</a>
@@ -298,10 +304,6 @@ div{
         
           <li>
             <a href="/2018/02/04/sass入门(四)/">sass 入门（四）</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/02/Angular 参考手册/">Angular 参考手册</a>
           </li>
         
       </ul>
@@ -331,7 +333,7 @@ div{
 </nav>
     
 
-<script src="js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -341,12 +343,6 @@ div{
 <script src="/js/script.js"></script>
 
 
-
   </div>
-<script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1519709665786')
-    .then(function () {console.log('ServiceWorker Register Successfully.')})
-    .catch(function (e) {console.error(e)});
-}
-</script></body>
+</body>
 </html>
