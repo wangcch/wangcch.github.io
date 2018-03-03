@@ -55,12 +55,18 @@ body,
     text-align: center;
   }
 }
+@media (max-width: 767px) {
+  .main-box {
+    padding: 0 5px;
+  }
+}
 #main {
   padding: 30px 0;
 }
 @media (max-width: 767px) {
   #main {
     float: none;
+    padding: 15px 0;
   }
 }
 #footer-mp {
@@ -95,6 +101,7 @@ article {
 @media (max-width: 767px) {
   article {
     padding: 15px 10px;
+    margin-bottom: 10px;
   }
 }
 .article-meta {
@@ -251,9 +258,17 @@ article {
     border: 1px solid rgba(0,0,0,0.1);
   }
   #header .intro {
-    margin: 80px 15px 0 15px;
-    padding: 30px 15px;
+    margin: 75px 5px 0 5px;
+    padding: 90px 15px 30px;
     background: #fff;
+    background: url("images/banner.jpg") no-repeat;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    background-position: top center;
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    text-shadow: 0 2px 3px rgba(0,0,0,0.6);
+    font-weight: 200;
   }
 }
 #head-nav {
@@ -443,6 +458,9 @@ article {
 #article-md {
   width: 100%;
 }
+#article-md a {
+  color: #007aff;
+}
 #article-md h1 {
   font-size: 20px;
   font-weight: bold;
@@ -458,7 +476,7 @@ article {
   position: absolute;
   top: 0;
   left: -20px;
-  color: #888;
+  color: #007aff;
 }
 #article-md h3,
 #article-md h4,
