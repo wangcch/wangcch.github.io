@@ -35,6 +35,8 @@
       
         <a class="nav-link" href="/induction">Induction</a>
       
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
     </div>
   </nav>
   <div class="hidden-xs">
@@ -48,6 +50,7 @@
   <div class="head-img hidden-xs"></div>
 </header>
 <script>
+// nav button
 var $toggle = document.querySelector('.head-nav-toggle');
 var $navlist = document.querySelector('#head-nav');
 
@@ -64,10 +67,9 @@ $toggle.addEventListener('click', function(e){
     $navlist.className += " head-navlist";
   }
 })
-
 </script>
       <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
-        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-vim基本命令，常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-vim基本命令，常用命令" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/12/vim基本命令，常用命令/" class="article-date">
   <time datetime="2018-02-11T16:00:00.000Z" itemprop="datePublished">2018-02-12</time>
@@ -121,7 +123,7 @@ $toggle.addEventListener('click', function(e){
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://wangcch.cc/2018/02/12/vim基本命令，常用命令/" data-id="cjeb39qdm0012og2jr1hli0hv" class="article-share-link">Share</a> -->
+      <!-- <a data-url="http://wangcch.cc/2018/02/12/vim基本命令，常用命令/" data-id="cjebppgef0018u62jt5raqn9i" class="article-share-link">Share</a> -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -174,6 +176,8 @@ $toggle.addEventListener('click', function(e){
   
     <a href="/induction" class="mobile-nav-link">Induction</a>
   
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
 </nav> -->
     
 
@@ -190,4 +194,25 @@ $toggle.addEventListener('click', function(e){
     
   </div>
 </body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
 </html>

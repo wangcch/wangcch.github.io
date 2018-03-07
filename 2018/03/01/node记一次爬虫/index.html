@@ -35,6 +35,8 @@
       
         <a class="nav-link" href="/induction">Induction</a>
       
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
     </div>
   </nav>
   <div class="hidden-xs">
@@ -48,6 +50,7 @@
   <div class="head-img hidden-xs"></div>
 </header>
 <script>
+// nav button
 var $toggle = document.querySelector('.head-nav-toggle');
 var $navlist = document.querySelector('#head-nav');
 
@@ -64,10 +67,9 @@ $toggle.addEventListener('click', function(e){
     $navlist.className += " head-navlist";
   }
 })
-
 </script>
       <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
-        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-node记一次爬虫" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-node记一次爬虫" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/01/node记一次爬虫/" class="article-date">
   <time datetime="2018-02-28T16:00:00.000Z" itemprop="datePublished">2018-03-01</time>
@@ -136,7 +138,7 @@ $toggle.addEventListener('click', function(e){
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://wangcch.cc/2018/03/01/node记一次爬虫/" data-id="cjeb39qdb000dog2jxmfxnhwr" class="article-share-link">Share</a> -->
+      <!-- <a data-url="http://wangcch.cc/2018/03/01/node记一次爬虫/" data-id="cjebppge2000iu62jkp7m0jl5" class="article-share-link">Share</a> -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cheerio/">cheerio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fs/">fs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/">https</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -146,6 +148,15 @@ $toggle.addEventListener('click', function(e){
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/03/04/img test/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          image test
+        
+      </div>
+    </a>
   
   
     <a href="/2018/02/26/Vue-cli API代理/" id="article-nav-older" class="article-nav-link-wrap">
@@ -180,6 +191,8 @@ $toggle.addEventListener('click', function(e){
   
     <a href="/induction" class="mobile-nav-link">Induction</a>
   
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
 </nav> -->
     
 
@@ -196,4 +209,25 @@ $toggle.addEventListener('click', function(e){
     
   </div>
 </body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
 </html>

@@ -35,6 +35,8 @@
       
         <a class="nav-link" href="/induction">Induction</a>
       
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
     </div>
   </nav>
   <div class="hidden-xs">
@@ -48,6 +50,7 @@
   <div class="head-img hidden-xs"></div>
 </header>
 <script>
+// nav button
 var $toggle = document.querySelector('.head-nav-toggle');
 var $navlist = document.querySelector('#head-nav');
 
@@ -64,10 +67,9 @@ $toggle.addEventListener('click', function(e){
     $navlist.className += " head-navlist";
   }
 })
-
 </script>
       <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
-        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-清除浮动" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-清除浮动" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/12/清除浮动/" class="article-date">
   <time datetime="2017-06-11T16:00:00.000Z" itemprop="datePublished">2017-06-12</time>
@@ -133,18 +135,8 @@ $toggle.addEventListener('click', function(e){
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"overflow:hidden;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left；"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:right；"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>清除这个父元素的子元素浮动对页面的影响。<strong>注意：</strong>但<code>overflow:hidden</code>将会把超出的部分隐藏起来</p>
 <p>3.伪元素（after）</p>
-<pre><code>.clear:after{
-    content:&quot;&quot;;
-    height:0;
-    line-height:0;
-    display:block; //块级元素
-    visibility:hidden; //将元素隐藏
-    clear:both;
-}
-.clear{
-    zoom:1; //兼容IE
-}
-</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clear"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left；"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:right；"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clear</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">	<span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">0</span>;</span><br><span class="line">	<span class="attribute">line-height</span>:<span class="number">0</span>;</span><br><span class="line">	display:block; //块级元素</span><br><span class="line">	visibility:hidden; //将元素隐藏</span><br><span class="line">	<span class="selector-tag">clear</span><span class="selector-pseudo">:both</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clear</span>&#123;</span><br><span class="line">	zoom:1; //兼容IE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clear"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left；"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:right；"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>原理和第一种差不多，不过是添加伪元素。<code>zoom</code>兼容ie6、7。相比优点浏览器的支持较好，不会出现怪问题。</p>
 <p>一般推荐使用方法三，伪元素。感谢：）</p>
 </div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
@@ -157,7 +149,7 @@ $toggle.addEventListener('click', function(e){
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://wangcch.cc/2017/06/12/清除浮动/" data-id="cjeb39qdr001dog2jhjyhdeo0" class="article-share-link">Share</a> -->
+      <!-- <a data-url="http://wangcch.cc/2017/06/12/清除浮动/" data-id="cjebppgel001lu62jy4xo4bie" class="article-share-link">Share</a> -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/float/">float</a></li></ul>
@@ -210,6 +202,8 @@ $toggle.addEventListener('click', function(e){
   
     <a href="/induction" class="mobile-nav-link">Induction</a>
   
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
 </nav> -->
     
 
@@ -226,4 +220,25 @@ $toggle.addEventListener('click', function(e){
     
   </div>
 </body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
 </html>

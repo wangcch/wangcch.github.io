@@ -35,6 +35,8 @@
       
         <a class="nav-link" href="/induction">Induction</a>
       
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
     </div>
   </nav>
   <div class="hidden-xs">
@@ -48,6 +50,7 @@
   <div class="head-img hidden-xs"></div>
 </header>
 <script>
+// nav button
 var $toggle = document.querySelector('.head-nav-toggle');
 var $navlist = document.querySelector('#head-nav');
 
@@ -64,23 +67,22 @@ $toggle.addEventListener('click', function(e){
     $navlist.className += " head-navlist";
   }
 })
-
 </script>
       <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
         <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
   
-  <div class="widget-wrap">
+  <div class="widget-wrap animated fadeInUp">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/network/" style="font-size: 15px;">network</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/note/" style="font-size: 17.5px;">note</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/sass/" style="font-size: 17.5px;">sass</a> <a href="/tags/setTimeout/" style="font-size: 10px;">setTimeout</a> <a href="/tags/viewport/" style="font-size: 10px;">viewport</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/visibility/" style="font-size: 10px;">visibility</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a>
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CentOS/" style="font-size: 10px;">CentOS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/network/" style="font-size: 15px;">network</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/note/" style="font-size: 17.5px;">note</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/sass/" style="font-size: 17.5px;">sass</a> <a href="/tags/setTimeout/" style="font-size: 10px;">setTimeout</a> <a href="/tags/viewport/" style="font-size: 10px;">viewport</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/visibility/" style="font-size: 10px;">visibility</a> <a href="/tags/vs-code/" style="font-size: 10px;">vs code</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a>
     </div>
   </div>
 
   
-  <div class="widget-wrap">
+  <div class="widget-wrap animated fadeInUp">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/sass/">sass</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/node-js/">node.js</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/sass/">sass</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/js/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/node-js/">node.js</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a></li></ul>
     </div>
   </div>
 
@@ -109,6 +111,8 @@ $toggle.addEventListener('click', function(e){
   
     <a href="/induction" class="mobile-nav-link">Induction</a>
   
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
 </nav> -->
     
 
@@ -125,4 +129,25 @@ $toggle.addEventListener('click', function(e){
     
   </div>
 </body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
 </html>
