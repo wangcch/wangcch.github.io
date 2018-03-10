@@ -3579,6 +3579,10 @@ li {
 }
 blockquote {
   font-size: 12px;
+  overflow: hidden;
+}
+blockquote img {
+  width: 100%;
 }
 .head-img {
   display: inline-block;

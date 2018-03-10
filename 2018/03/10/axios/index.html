@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>axios 好东西 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-axios" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/10/axios/" class="article-date">
+  <time datetime="2018-03-09T16:00:00.000Z" itemprop="datePublished">2018-03-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>►<a class="article-category-link" href="/categories/js/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      axios 好东西
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <p="">一个用于浏览器和node.js的基于Promise的HTTP客户端。<br><a id="more"></a><br>为什么舍弃vue-resources? 因为vue-resources不再更新了， Vue2.0之后官方更推荐axios。而且axios也更强大。<p></p>
+<blockquote>
+<p><a href="https://github.com/axios/axios" target="_blank" rel="noopener">github/axios</a><br>浏览器支持<br><a href="https://camo.githubusercontent.com/626c46cfd86214001b4143cda5d0ef27a25bd69f/68747470733a2f2f73617563656c6162732e636f6d2f6f70656e5f73617563652f6275696c645f6d61747269782f6178696f732e737667" title="axios" class="gallery-item" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/626c46cfd86214001b4143cda5d0ef27a25bd69f/68747470733a2f2f73617563656c6162732e636f6d2f6f70656e5f73617563652f6275696c645f6d61747269782f6178696f732e737667" alt="axios"></a></p>
+</blockquote>
+<h2 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h2><ol>
+<li>在浏览器中发送 XMLHttpRequests 请求</li>
+<li>在 node.js 中发送 http请求</li>
+<li>支持 Promise API</li>
+<li>拦截请求和响应</li>
+<li>转换请求和响应数据</li>
+<li>取消请求</li>
+<li>自动转换 JSON 数据</li>
+<li>客户端支持保护安全免受 CSRF/XSRF 攻击</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="get"><a href="#get" class="headerlink" title="get"></a>get</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">axios.get(url)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>error.response 你会用到的</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">axios.get(url)</span><br><span class="line">   .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">     <span class="keyword">if</span>（error.response）&#123;</span><br><span class="line">        <span class="comment">// 2XX 状态码之外的处理</span></span><br><span class="line">        <span class="built_in">console</span>.log（error.response.data）;</span><br><span class="line">        <span class="built_in">console</span>.log（error.response.status）;</span><br><span class="line">        <span class="built_in">console</span>.log（error.response.headers）;</span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 在设置触发错误的请求时发生了错误</span></span><br><span class="line">        <span class="built_in">console</span>.log（<span class="string">'Error'</span>，error.message）;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+<p>添加头部信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">axios.get(url, &#123;</span><br><span class="line">        headers:&#123;</span><br><span class="line">            <span class="string">'Content-Type'</span>: <span class="string">'multipart/form-data'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="post"><a href="#post" class="headerlink" title="post"></a>post</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">axios.post(url, data)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">axios.request(config)</span><br><span class="line">axios.get(url[, config])</span><br><span class="line">axios.delete(url[, config])</span><br><span class="line">axios.head(url[, config])</span><br><span class="line">axios.options(url[, config])</span><br><span class="line">axios.post(url[, data[, config]])</span><br><span class="line">axios.put(url[, data[, config]])</span><br><span class="line">axios.patch(url[, data[, config]])</span><br></pre></td></tr></table></figure>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>github文档: <a href="https://github.com/axios/axios" target="_blank" rel="noopener">https://github.com/axios/axios</a></p>
+<p>看云中文文档：<a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">https://www.kancloud.cn/yunye/axios/234845</a></p>
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2018/03/10/axios/" data-id="cjelkvwh9000dlp2jsdowaikn" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/axios/">axios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/07/CentOS yum_install_nginx/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CentOS yum install nginx</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>
