@@ -3628,6 +3628,12 @@ article {
   color: #333;
   border-color: #666;
 }
+.article-inner {
+  overflow: hidden;
+}
+.article-inner img {
+  width: 100%;
+}
 .article-header h1 {
   font-size: 20px;
   font-weight: bold;
@@ -4050,6 +4056,42 @@ article {
 #article-md .html:after {
   content: 'html';
 }
+#article-md table {
+  border: 1px solid #f8f8f8;
+  width: 100%;
+}
+#article-md table thead {
+  background: #eee;
+}
+#article-md table thead th {
+  padding: 5px;
+  border-left: 1px solid #f8f8f8;
+}
+#article-md table thead th:first-child {
+  border: none;
+}
+#article-md table tbody tr {
+  border-top: 1px solid #eee;
+}
+#article-md table tbody tr:first-child {
+  border: none;
+}
+#article-md table tbody td {
+  padding: 5px;
+  border-left: 1px solid #eee;
+}
+#article-md table tbody td:first-child {
+  border: none;
+}
+#article-md ol {
+  list-style-type: none;
+  counter-reset: li;
+  padding-left: 16px;
+}
+#article-md ol li:before {
+  content: counter(li) '. ';
+  counter-increment: li;
+}
 pre,
 .highlight {
   overflow: auto;
@@ -4093,6 +4135,15 @@ pre code {
   margin: 0;
   width: auto;
   border: none;
+}
+.highlight table .gutter {
+  padding: 0 !important;
+  border: none !important;
+  width: 28px;
+}
+.highlight table .code {
+  padding: 0 !important;
+  border: none !important;
 }
 .highlight td {
   border: none;
