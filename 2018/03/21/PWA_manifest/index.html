@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PWA Manifest | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-PWA_manifest" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/21/PWA_manifest/" class="article-date">
+  <time datetime="2018-03-20T16:00:00.000Z" itemprop="datePublished">2018-03-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PWA/">PWA</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PWA Manifest
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <h2="" id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介<p>manifest是一种简单的json 数据风格的配置文件，通过对其相应对属性进行配置，才能实现相应对功能，这里可以称manifest 为WEB应用清单。web应用清单可以实现自定义启动画面、打开url、设置界面颜色、设置桌面图标等等</p>
+<a id="more"></a>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"short_name"</span>: <span class="string">"短名称"</span>,</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"这是一个完整名称"</span>,</span><br><span class="line">    <span class="attr">"icons"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"src"</span>: <span class="string">"144x144.png"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"image/png"</span>,</span><br><span class="line">            <span class="attr">"sizes"</span>: <span class="string">"144x144"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"background_color"</span>: <span class="string">"#2196f3"</span>,</span><br><span class="line">    <span class="attr">"display"</span>: <span class="string">"standalone"</span>,</span><br><span class="line">    <span class="attr">"start_url"</span>: <span class="string">"index.html"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="部署到浏览器"><a href="#部署到浏览器" class="headerlink" title="部署到浏览器"></a>部署到浏览器</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"manifest.json"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="theme-color"><a href="#theme-color" class="headerlink" title="theme_color"></a>theme_color</h2><p>theme_color: {Color}，定义和background_color一样的CSS颜色值，用于显示Web App的主题色，显示在banner位置。</p>
+<h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><p>提供有关Web应用程序的一般描述。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"description": "The PWA"</span><br></pre></td></tr></table></figure></p>
+<h2 id="display"><a href="#display" class="headerlink" title="display"></a>display</h2><p>display: {string}，用来指定 Web App 从主屏幕点击启动后的显示类型<br>|显示类型|描述|降级显示类型|<br>|-|-|-|<br>|fullscreen|应用的显示界面将占满整个屏幕|standalone|<br>|standlone|浏览器相关UI（如导航栏、工具栏等）将会被隐藏|minimal-ui|<br>|minimal-ui|显示形式与standalone类似，浏览器相关UI会最小化为一个按钮，不同浏览器在实现上略有不同|browser|<br>|browser|浏览器模式，与普通网页在浏览器中打开的显示一致|（none）|</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> all and (display-mode: fullscreen) &#123;</span><br><span class="line">    <span class="selector-tag">div</span> &#123;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> all and (display-mode: standalone) &#123;</span><br><span class="line">    <span class="selector-tag">div</span> &#123;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">1px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> all and (display-mode: minimal-ui) &#123;</span><br><span class="line">    <span class="selector-tag">div</span> &#123;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">2px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> all and (display-mode: browser) &#123;</span><br><span class="line">    <span class="selector-tag">div</span> &#123;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">3px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="icon"><a href="#icon" class="headerlink" title="icon"></a>icon</h2><p>指定可在各种环境中用作应用程序图标的图像对象数组。 例如，它们可以用来在其他应用程序列表中表示Web应用程序，或者将Web应用程序与OS的任务切换器和/或系统偏好集成在一起。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">"icons": [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"src"</span>: <span class="string">"icon/lowres.webp"</span>,</span><br><span class="line">    <span class="attr">"sizes"</span>: <span class="string">"48x48"</span>,</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"image/webp"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"src"</span>: <span class="string">"icon/lowres"</span>,</span><br><span class="line">    <span class="attr">"sizes"</span>: <span class="string">"48x48"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"src"</span>: <span class="string">"icon/hd_hi.ico"</span>,</span><br><span class="line">    <span class="attr">"sizes"</span>: <span class="string">"72x72 96x96 128x128 256x256"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"src"</span>: <span class="string">"icon/hd_hi.svg"</span>,</span><br><span class="line">    <span class="attr">"sizes"</span>: <span class="string">"72x72"</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sizes</td>
+<td>包含空格分隔的图像尺寸的字符串。</td>
+</tr>
+<tr>
+<td>src</td>
+<td>图像文件的路径。 如果src是一个相对URL，则基本URL将是manifest的URL。</td>
+</tr>
+<tr>
+<td>type</td>
+<td>提示图像的媒体类型。此字段的目的是允许用户代理快速忽略不支持的媒体类型的图像。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lang"><a href="#lang" class="headerlink" title="lang"></a>lang</h2><p>指定<strong>name</strong>和<strong>short_name</strong>成员中的值的主要语言。 该值是包含单个语言标记的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;lang&quot;:&quot;en-US&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="name"><a href="#name" class="headerlink" title="name"></a>name</h2><p>可以理解为全称吧</p>
+<h2 id="short-name"><a href="#short-name" class="headerlink" title="short_name"></a>short_name</h2><p>简称，为了在没有足够空间显示Web应用程序的全名时使用。</p>
+<h2 id="orientation"><a href="#orientation" class="headerlink" title="orientation"></a>orientation</h2><p>orientation: {string}，Web App的在屏幕上的显示方向。</p>
+<ul>
+<li>landscape-primary，当视窗宽度大于高度时，当前应用处于“横屏”状态</li>
+<li>landscape-secondary，landscape-primary的180°方向</li>
+<li>landscape，根据屏幕的方向，自动横屏幕180°切换</li>
+<li>portrait-primary，当视窗宽度小于高度时，当前应用处于“竖屏”状态</li>
+<li>portrait-secondary，portrait-primary的180°方向</li>
+<li>portrait，根据屏幕方向，自动竖屏180°切换</li>
+<li>natural， 根据不同平台的规则，显示为当前平台的0°方向</li>
+<li>any，任意方向切换</li>
+</ul>
+<h2 id="dir"><a href="#dir" class="headerlink" title="dir"></a>dir</h2><p>dir: {string}，设置文字的显示方向。 </p>
+<ul>
+<li>ltr，文本显示方向，左到右 </li>
+<li>rtl，文本显示方向，右到左 </li>
+<li>auto，根据系统的方向显示</li>
+</ul>
+<h2 id="related-applications"><a href="#related-applications" class="headerlink" title="related_applications"></a>related_applications</h2><p>related_applications: {Array.<appinfo>}，用于定义对应的原生应用，类似应用安装横幅的形式去推广、引流。</appinfo></p>
+<h2 id="AppInfo结构："><a href="#AppInfo结构：" class="headerlink" title="AppInfo结构："></a>AppInfo结构：</h2><ul>
+<li>platform: {string}， 应用平台 </li>
+<li>id: {string} 应用id</li>
+</ul>
+<h2 id="prefer-related-applications"><a href="#prefer-related-applications" class="headerlink" title="prefer_related_applications"></a>prefer_related_applications</h2><p>prefer_related_applications:{Boolean}，用于设置只允许用户安装原生应用。</p>
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2018/03/21/PWA_manifest/" data-id="cjf44c32l000a0m2jzmpkg0t5" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PWA/">PWA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/manifest/">manifest</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/23/vuex_simple_case/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vuex 简单案例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/15/img test.1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">content image test</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>
