@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Nginx Node 服务器简单代理方案 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-nginx+node_server_simple_proxy_program" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/25/nginx+node_server_simple_proxy_program/" class="article-date">
+  <time datetime="2018-03-24T16:00:00.000Z" itemprop="datePublished">2018-03-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>►<a class="article-category-link" href="/categories/js/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Nginx Node 服务器简单代理方案
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <p="">简单使用Nginx反向代理Node服务<p></p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直处于todo状态的东西，但本人比较懒，一直没写，但却用了很久。应该是去年开始线上服务器从windows server转到CentOS。（windows server的傻瓜式操作确实很low）当然WS的应用太占内存（类似XAMPP的应用在我的1核1G的学生机根本不行，远程桌面都进不去，报内存不足），所以选择CentOS是必然结果。</p>
+<p>好，回归正题：Nginx反向代理node服务，使用<strong>pm2</strong>做node服务管理。</p>
+<blockquote>
+<p><a href="http://pm2.keymetrics.io" target="_blank" rel="noopener">pm2</a> 一个带有负载均衡功能的Node应用的进程管理器.</p>
+</blockquote>
+<p><strong>为什么使用Nginx反向代理？</strong></p>
+<p>很简单，nginx不会用。：）<br>好吧，当然Nginx 本身就是是一个很强大的高性能Web和反向代理服务器。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
+<li>install nginx<blockquote>
+<p><a href="http://blog.theyear.space/2018/03/07/CentOS%20yum_install_nginx/#more" target="_blank" rel="noopener">参考：CentOS yum install nginx</a></p>
+</blockquote>
+</li>
+<li><p>install node</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install node</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>install pm2</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install pm2 -g</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="node服务"><a href="#node服务" class="headerlink" title="node服务"></a>node服务</h2><ol>
+<li><p>初始化<br>新建一个项目文件夹，创建一个 package.json 文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir demoapp</span><br><span class="line">cd demoapp</span><br><span class="line"></span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>express</p>
+<blockquote>
+<p>使用 <a href="http://www.expressjs.com.cn" target="_blank" rel="noopener">express</a> 框架 (以使用express为例)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express --save</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>新建app.js</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim app.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"><span class="comment">// 设置端口</span></span><br><span class="line">app.set(<span class="string">'port'</span>, <span class="number">2000</span>);</span><br><span class="line"><span class="comment">// express 托管静态文件 ./public 文件夹下</span></span><br><span class="line">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));</span><br><span class="line"></span><br><span class="line">http.createServer(app).listen(app.get(<span class="string">'port'</span>), <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'static server start on port:'</span> + app.get(<span class="string">'port'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol>
+<li>创建静态文件目录<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir public</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>将你打包好的文件放置在public 文件夹下</p>
+<ol>
+<li>测试<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>访问 you_ip:2000 查看是否可用，ctrl+c 关闭服务</p>
+<h2 id="pm2进程管理"><a href="#pm2进程管理" class="headerlink" title="pm2进程管理"></a>pm2进程管理</h2><p>pm2 启动服务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 start app.js</span><br></pre></td></tr></table></figure></p>
+<p>pm2 常用命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 显示PM2启动的所有的应用程序列表</span></span><br><span class="line">pm2 list</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止app应用进程</span></span><br><span class="line">pm2 stop APP_NAME</span><br><span class="line">pm2 stop all # 停止所有，也可以指定id。 下同</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启应用</span></span><br><span class="line">pm2 restart APP_NAME</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除应用</span></span><br><span class="line">pm2 delete APP_NAME</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示每个应用程序的CPU和内存占用情况</span></span><br><span class="line">pm2 monit</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示应用的所有信息</span></span><br><span class="line">pm2 show APP_NAME</span><br></pre></td></tr></table></figure></p>
+<h2 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h2><p>上述配置完成，可以进行IP:PORT 进行访问，但还是无法使用域名，所以下面进行nginx反向代理配置。<br>进入nginx配置路径，并在conf.d添加自己的配置<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/nginx/conf.d</span><br></pre></td></tr></table></figure></p>
+<p>配置基本相同，在前缀加上node监听端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># *.conf</span><br><span class="line"></span><br><span class="line">upstream nodejs &#123;</span><br><span class="line">  server 127.0.0.1:2000; # 反向监听2000端口</span><br><span class="line">  keepalive 64;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同一个域名域名下监听其他端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># *.conf</span><br><span class="line"># 例：you_domain/demo  监听服务器3000端口</span><br><span class="line"></span><br><span class="line">location /demo/ &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:3000/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2018/03/25/nginx+node_server_simple_proxy_program/" data-id="cjf6ig5tg000ubl2jp456hxnb" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pm2/">pm2</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/23/vuex_simple_case/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vuex 简单案例</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>

@@ -4035,7 +4035,8 @@ article {
 #article-md .css:after,
 #article-md .sass:after,
 #article-md .scss:after,
-#article-md .html:after {
+#article-md .html:after,
+#article-md .shell:after {
   position: absolute;
   right: 10px;
   top: 5px;
@@ -4055,6 +4056,9 @@ article {
 }
 #article-md .html:after {
   content: 'html';
+}
+#article-md .shell:after {
+  content: 'shell';
 }
 #article-md table {
   border: 1px solid #f8f8f8;
