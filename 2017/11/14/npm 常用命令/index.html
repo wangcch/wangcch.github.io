@@ -101,16 +101,17 @@ $toggle.addEventListener('click', function(e){
 <blockquote>
 <p>注意事项：如果在使用模块的时候不知道其名字，可以通过<a href="http://search.npmjs.org网站按照" target="_blank" rel="noopener">http://search.npmjs.org网站按照</a></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm search indexName    // 索引值找到想要的模块。npm也提供了查询的功能</span><br></pre></td></tr></table></figure>
-<p>安装完毕后会产生一个node_modules目录，其目录下就是安装的各个node模块。node的安装分为全局模式和本地模式。一般情况下会以本地模式运行，包会被安装到和你的应用代码统计的本地node_modules目录下。在全局模式下，Node包会被安装到Node的安装目录下的node_modules下。全局安装命令为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g moduleName。 // 获知使用npm set global=true来设定安装模式</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm get global  // 可以查看当前使用的安装模式</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install &lt;name&gt; --save   // 安装的同时，将信息写入package.json中</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm search indexName    # 索引值找到想要的模块。npm也提供了查询的功能</span><br></pre></td></tr></table></figure>
+<p>安装完毕后会产生一个node_modules目录，其目录下就是安装的各个node模块。node的安装分为全局模式和本地模式。一般情况下会以本地模式运行，包会被安装到和你的应用代码统计的本地node_modules目录下。在全局模式下，Node包会被安装到Node的安装目录下的node_modules下。全局安装命令为<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g moduleName。 # 获知使用npm set global=true来设定安装模式</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm get global  # 可以查看当前使用的安装模式</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install &lt;name&gt; --save   # 安装的同时，将信息写入package.json中</span><br></pre></td></tr></table></figure>
 <p>项目路径中如果有package.json文件时，直接使用npm install方法就可以根据dependencies配置安装所有的依赖包这样代码提交到github时，就不用提交node_modules这个文件夹了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install npm@latest -g   # 更新到最新版本npm</span><br></pre></td></tr></table></figure>
 <h2 id="npm-view-moduleNames"><a href="#npm-view-moduleNames" class="headerlink" title="npm view moduleNames"></a>npm view moduleNames</h2><p>查看node模块的package.json文件夹</p>
 <blockquote>
 <p>注意事项：如果想要查看package.json文件夹下某个标签的内容，可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm view moduleName labelName</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="npm-list"><a href="#npm-list" class="headerlink" title="npm list"></a>npm list</h2><p>查看当前目录下已安装的node包。同命令npm ll/npm ls/npm la<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list -g --depth 0   // 查看深度为0 的全局安装模块</span><br></pre></td></tr></table></figure></p>
+<h2 id="npm-list"><a href="#npm-list" class="headerlink" title="npm list"></a>npm list</h2><p>查看当前目录下已安装的node包。同命令npm ll/npm ls/npm la<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list -g --depth 0   # 查看深度为0 的全局安装模块</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>注意事项：Node模块搜索是从代码执行的当前目录开始的，搜索结果取决于当前使用的目录中的node_modules下的内容。 npm list parseable=true可以目录的形式来展现当前安装的所有node包</p>
 </blockquote>
@@ -134,7 +135,7 @@ $toggle.addEventListener('click', function(e){
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://wangcch.cc/2017/11/14/npm 常用命令/" data-id="cjf6ig5tl0014bl2javxcl9yv" class="article-share-link">Share</a> -->
+      <!-- <a data-url="http://wangcch.cc/2017/11/14/npm 常用命令/" data-id="cjfrk1s250016332jlgd1g9jj" class="article-share-link">Share</a> -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
