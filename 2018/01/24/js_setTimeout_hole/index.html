@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>js 循环延时踩坑 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-js_setTimeout_hole" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/24/js_setTimeout_hole/" class="article-date">
+  <time datetime="2018-01-23T16:00:00.000Z" itemprop="datePublished">2018-01-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js 循环延时踩坑
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <p="">为什么遇到循环延时操作了。一切源于在小程序开发过程中循环生成多个二维码事件，二维码画图太慢，在读取canvas画图地址时，不给一定盾延时是无法读取到图片地址的。再加上小程序不支持多线程。画图需要一定的时间，又处于占用时期。基本情况就是能生成第一个二维码，之后都读取不到地址。<p></p>
+<a id="more"></a>
+<hr>
+<h2 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 事例</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> id <span class="keyword">in</span> data) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(id);</span><br><span class="line">    <span class="keyword">this</span>.createQr(id, content); <span class="comment">// 生成二维码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>基本输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">...</span><br><span class="line">&#123; createQr() 输出结果  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看出循环很快结束，createQr()的执行结果在循环log之后。</p>
+<blockquote>
+<p>for 循环会快速遍历data数组，又是单线程，最后id=0之后的createQr()都是失败的。所以希望能都等一会，再循环下一个。</p>
+</blockquote>
+<h2 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h2><p>想试试加个延时看看<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> id <span class="keyword">in</span> data) &#123;</span><br><span class="line">    setTimeout( <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(id);</span><br><span class="line">        <span class="keyword">this</span>.createQr(id, content);</span><br><span class="line">    &#125;, <span class="number">1000</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>基本输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">n</span><br><span class="line">n</span><br><span class="line">n </span><br><span class="line">...</span><br><span class="line">// 等待了 1s</span><br><span class="line">&#123; createQr() 输出结果  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以知道还是循环先执行，1s之后已经是最后一个id了。所以延时不能添加到for循环里。</p>
+<h2 id="And-Next"><a href="#And-Next" class="headerlink" title="And Next"></a>And Next</h2><p>createQr() 中添加延时试试<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> id <span class="keyword">in</span> data) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(id);</span><br><span class="line">    <span class="keyword">this</span>.createQr(id, content);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">creatQr: <span class="function"><span class="keyword">function</span> (<span class="params">id, content</span>) </span>&#123;</span><br><span class="line">    setTimeout( <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// DO</span></span><br><span class="line">    &#125;, <span class="number">1000</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>基本输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2 </span><br><span class="line">...</span><br><span class="line">// 等待了 1s</span><br><span class="line">&#123; createQr() 输出结果  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>是不是感觉又回到了起点？</p>
+<p>实际情况是：等于for循环同时调用data.length个createQr(); 等待1s在执行createQr()内的内容。由于单线程，又只是执行了一个。</p>
+<p>其实我们想的不过就是第1s: -&gt;createQr() ; 第2s: -&gt;create() ; 第3s: -&gt;create() ; …… 所以我需要 <strong> 梯度延时 </strong></p>
+<h2 id="Now"><a href="#Now" class="headerlink" title="Now"></a>Now</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> id <span class="keyword">in</span> data) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(id);</span><br><span class="line">    <span class="keyword">this</span>.createQr(id, content);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">creatQr: <span class="function"><span class="keyword">function</span> (<span class="params">id, content</span>) </span>&#123;</span><br><span class="line">    setTimeout( <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// DO</span></span><br><span class="line">    &#125;, id*<span class="number">1000</span>);  <span class="comment">// 延时叠加</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>基本输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2 </span><br><span class="line">...</span><br><span class="line">// 等待了 1s</span><br><span class="line">&#123; createQr() 输出结果  &#125;</span><br><span class="line">// 等待了 1s</span><br><span class="line">&#123; createQr() 输出结果  &#125;</span><br><span class="line">// 等待了 1s</span><br><span class="line">&#123; createQr() 输出结果  &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>现在基本上算是解决了画图延时带来的问题。</p>
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2018/01/24/js_setTimeout_hole/" data-id="cjgdcjlct0014kt2jrbv15che" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/setTimeout/">setTimeout</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/31/sass_start3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          sass 入门（三）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/20/sass_start2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">sass 入门（二）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>

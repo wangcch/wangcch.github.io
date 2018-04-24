@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vue 常用UI组件 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-vue_ui" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/16/vue_ui/" class="article-date">
+  <time datetime="2017-10-15T16:00:00.000Z" itemprop="datePublished">2017-10-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>►<a class="article-category-link" href="/categories/js/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue 常用UI组件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <table="">
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Muse-UI</td>
+<td>Mint UI</td>
+<td>iview</td>
+<td>vue-mui</td>
+<td>radon-ui</td>
+<td>antd vue</td>
+<td>weex</td>
+<td>element</td>
+<td>N3</td>
+<td>vuikit</td>
+</tr>
+</tbody>
+
+<a id="more"></a>
+<h2 id="Muse-Ui"><a href="#Muse-Ui" class="headerlink" title="Muse-Ui"></a>Muse-Ui</h2><p>项目主页：<a href="http://www.muse-ui.org/#/index" target="_blank" rel="noopener">http://www.muse-ui.org/#/index</a><br>github地址：<a href="https://github.com/museui/muse-ui" target="_blank" rel="noopener">https://github.com/museui/muse-ui</a><br>中文文档：<a href="http://www.muse-ui.org/#/install" target="_blank" rel="noopener">http://www.muse-ui.org/#/install</a></p>
+<h2 id="Mint-UI"><a href="#Mint-UI" class="headerlink" title="Mint UI"></a>Mint UI</h2><p>项目主页:<a href="http://mint-ui.github.io/#!/zh-cn" target="_blank" rel="noopener">http://mint-ui.github.io/#!/zh-cn</a><br>demo:<a href="http://elemefe.github.io/mint-ui/#/" target="_blank" rel="noopener">http://elemefe.github.io/mint-ui/#/</a><br>github地址:<a href="https://github.com/ElemeFE/mint-ui" target="_blank" rel="noopener">https://github.com/ElemeFE/mint-ui</a><br>中文文档地址:<a href="http://mint-ui.github.io/docs/#!/zh-cn" target="_blank" rel="noopener">http://mint-ui.github.io/docs/#!/zh-cn</a></p>
+<h2 id="iview"><a href="#iview" class="headerlink" title="iview"></a>iview</h2><p>iView 配套的工作流:<a href="https://github.com/icarusion/vue-vueRouter-webpack" target="_blank" rel="noopener">https://github.com/icarusion/vue-vueRouter-webpack</a><br>github地址:<a href="https://github.com/iview/iview" target="_blank" rel="noopener">https://github.com/iview/iview</a><br>官网:<a href="https://www.iviewui.com/" target="_blank" rel="noopener">https://www.iviewui.com/</a></p>
+<h2 id="vue-mui"><a href="#vue-mui" class="headerlink" title="vue-mui"></a>vue-mui</h2><p>官网:<a href="http://mui.yaobieting.com/" target="_blank" rel="noopener">http://mui.yaobieting.com/</a><br>github地址:<a href="https://github.com/creatshare/vue-mui" target="_blank" rel="noopener">https://github.com/creatshare/vue-mui</a></p>
+<h2 id="radon-ui"><a href="#radon-ui" class="headerlink" title="radon-ui"></a>radon-ui</h2><p>中文文档：<a href="https://luojilab.github.io/radon-ui/#!/" target="_blank" rel="noopener">https://luojilab.github.io/radon-ui/#!/</a><br>github:<a href="https://github.com/luojilab/radon-ui" target="_blank" rel="noopener">https://github.com/luojilab/radon-ui</a></p>
+<h2 id="antd-vue"><a href="#antd-vue" class="headerlink" title="antd vue"></a>antd vue</h2><p>中文文档:<a href="http://okoala.github.io/vue-antd/#!/components" target="_blank" rel="noopener">http://okoala.github.io/vue-antd/#!/components</a><br>github:<a href="https://github.com/okoala/vue-antd" target="_blank" rel="noopener">https://github.com/okoala/vue-antd</a></p>
+<h2 id="weex"><a href="#weex" class="headerlink" title="weex"></a>weex</h2><p>社区:<a href="http://www.weex.help/" target="_blank" rel="noopener">http://www.weex.help/</a><br>官网:<a href="http://weex-project.io/cn/" target="_blank" rel="noopener">http://weex-project.io/cn/</a><br>github:<a href="https://github.com/alibaba/weex" target="_blank" rel="noopener">https://github.com/alibaba/weex</a><br>中文文档:<a href="http://www.weex.help/topic/57792770eb60516a48db5485" target="_blank" rel="noopener">http://www.weex.help/topic/57792770eb60516a48db5485</a></p>
+<h2 id="element"><a href="#element" class="headerlink" title="element"></a>element</h2><p>官网:<a href="http://element.eleme.io/#/zh-CN" target="_blank" rel="noopener">http://element.eleme.io/#/zh-CN</a><br>饿了么github:<a href="http://github.com/elemefe" target="_blank" rel="noopener">http://github.com/elemefe</a></p>
+<h2 id="N3"><a href="#N3" class="headerlink" title="N3"></a>N3</h2><p>官网:<a href="https://n3-components.github.io/N3-components/" target="_blank" rel="noopener">https://n3-components.github.io/N3-components/</a><br>中文文档:<a href="https://n3-components.github.io/N3-components/component.html" target="_blank" rel="noopener">https://n3-components.github.io/N3-components/component.html</a><br>英文文档:<a href="https://github.com/N3-components/N3-components" target="_blank" rel="noopener">https://github.com/N3-components/N3-components</a></p>
+<h2 id="vuiki"><a href="#vuiki" class="headerlink" title="vuiki"></a>vuiki</h2><p>github:<a href="https://github.com/vuikit/vuikit" target="_blank" rel="noopener">https://github.com/vuikit/vuikit</a><br>英文文档:<a href="https://vuikit.js.org/#/" target="_blank" rel="noopener">https://vuikit.js.org/#/</a></p>
+<p>原文链接：<a href="http://www.jianshu.com/p/2e53c4454d8b" target="_blank" rel="noopener">http://www.jianshu.com/p/2e53c4454d8b</a></p>
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2017/10/16/vue_ui/" data-id="cjgdcjld70024kt2ja9o5uxb0" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/10/get_put_post_delete/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          get put post delete 区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/27/CSS_loading/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CSS 实现简单loading</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>
