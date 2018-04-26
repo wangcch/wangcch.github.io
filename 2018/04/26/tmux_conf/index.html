@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tmux 简单配置 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-tmux_conf" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/26/tmux_conf/" class="article-date">
+  <time datetime="2018-04-25T16:00:00.000Z" itemprop="datePublished">2018-04-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vim/">vim</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Tmux 简单配置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <p="">Tmux 终端分屏利器。运行多个终端会话，你还可以通过 Tmux 使终端会话运行于后台或是按需接入、断开会话。实用高效<br><a id="more"></a><p></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://brew.sh/index_zh-cn" target="_blank" rel="noopener">homebrew</a>安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tmux</span><br></pre></td></tr></table></figure></p>
+<h2 id="为什么配置"><a href="#为什么配置" class="headerlink" title="为什么配置"></a>为什么配置</h2><p>受不了<code>ctrl + b</code>（这两个组合键每次按的时候都要停顿一下…），还有<code>% “</code>分屏 -_-#</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>用户用户名<code>~</code>目录修改/新建<code>.tmux.conf</code>文件</p>
+<p>我需要：</p>
+<ol>
+<li><code>c + b</code> 改成 稍微近一点到组合键（如：<code>c + a</code>）</li>
+<li><code>shift + % / “</code>分屏改成能理解到，我每次不记得<strong>%</strong> <strong>“</strong>哪个是垂直/水平</li>
+<li>支持鼠标点击选择</li>
+</ol>
+<h3 id="tmux-conf"><a href="#tmux-conf" class="headerlink" title=".tmux.conf"></a>.tmux.conf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># remap prefix from &apos;C-b&apos; to &apos;C-a&apos;</span><br><span class="line">unbind C-b</span><br><span class="line">set-option -g prefix C-a</span><br><span class="line">bind-key C-a send-prefix</span><br><span class="line"></span><br><span class="line"># split panes using | and -</span><br><span class="line">bind | split-window -h</span><br><span class="line">bind - split-window -v</span><br><span class="line">unbind &apos;&quot;&apos;</span><br><span class="line">unbind %</span><br><span class="line"></span><br><span class="line"># Enable mouse mode (tmux 2.1 and above)</span><br><span class="line">set -g mouse on</span><br><span class="line"># Enable mouse mode (tmux previous 2.1)</span><br><span class="line">set -g mode-mouse on</span><br><span class="line">set -g mouse-resize-pane on</span><br><span class="line">set -g mouse-select-pane on</span><br><span class="line">set -g mouse-select-window on</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看tmux版本 <code>tmux -V</code></p>
+</blockquote>
+<blockquote>
+<p><strong>注意：</strong> 修改配置并使其生效 你修改了~/.tmux.conf, 但是并没有起作用。你退出tmux, 重新进去，发现还是没有生效。<br>这是因为tmux后台有一个server, 在你第一次使用它时启动, 并创建会话。 当你退出时，它并没有退出。正确的方法杀掉server后再重新进入：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-server</span><br><span class="line"></span><br><span class="line">tmux</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><p>默认命令前缀：<code>ctrl + b</code>（上面，我们默认改成了<code>ctrl + a</code>）</p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?</td>
+<td>列出所有快捷键；按 q 返回</td>
+</tr>
+<tr>
+<td>d</td>
+<td>脱离当前会话,可暂时返回 Shell 界面</td>
+</tr>
+<tr>
+<td>s</td>
+<td>选择并切换会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr>
+<td>D</td>
+<td>选择要脱离的会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr>
+<td>:</td>
+<td>进入命令行模式；此时可输入支持的命令</td>
+</tr>
+<tr>
+<td>[</td>
+<td>复制模式，光标移动到复制内容位置，空格键开始，方向键选择复制，回车确认，q/Esc 退出</td>
+</tr>
+<tr>
+<td>]</td>
+<td>进入粘贴模式，粘贴之前复制的内容，按 q/Esc 退出</td>
+</tr>
+<tr>
+<td>~</td>
+<td>列出提示信息缓存；其中包含了之前 tmux 返回的各种提示信息</td>
+</tr>
+<tr>
+<td>t</td>
+<td>显示当前的时间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="单一窗格操作"><a href="#单一窗格操作" class="headerlink" title="单一窗格操作"></a>单一窗格操作</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>关闭当前分屏</td>
+</tr>
+<tr>
+<td>!</td>
+<td>将当前面板置于新窗口,即新建一个窗口,其中仅包含当前面板</td>
+</tr>
+<tr>
+<td>q</td>
+<td>显示面板编号</td>
+</tr>
+<tr>
+<td>o</td>
+<td>选择当前窗口中下一个面板</td>
+</tr>
+<tr>
+<td>{</td>
+<td>向前置换当前面板</td>
+</tr>
+<tr>
+<td>}</td>
+<td>向后置换当前面板</td>
+</tr>
+<tr>
+<td>z</td>
+<td>最大化当前所在面板</td>
+</tr>
+<tr>
+<td>方向键</td>
+<td>移动光标选择对应面板</td>
+</tr>
+<tr>
+<td>alt+o</td>
+<td>逆时针旋转当前窗口的面板</td>
+</tr>
+<tr>
+<td>ctrl+o</td>
+<td>顺时针旋转当前窗口的面板</td>
+</tr>
+</tbody>
+</table>
+<h3 id="窗口面板操作"><a href="#窗口面板操作" class="headerlink" title="窗口面板操作"></a>窗口面板操作</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>c</td>
+<td>创建新窗口</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>关闭当前窗口</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>数字键切换到指定窗口</td>
+</tr>
+<tr>
+<td>p</td>
+<td>切换至上一窗口</td>
+</tr>
+<tr>
+<td>n</td>
+<td>切换至下一窗口</td>
+</tr>
+<tr>
+<td>l</td>
+<td>前后窗口间互相切换</td>
+</tr>
+<tr>
+<td>w</td>
+<td>通过窗口列表切换窗口</td>
+</tr>
+<tr>
+<td>,</td>
+<td>重命名当前窗口，便于识别</td>
+</tr>
+<tr>
+<td>.</td>
+<td>修改当前窗口编号，相当于重新排序</td>
+</tr>
+<tr>
+<td>f</td>
+<td>在所有窗口中查找关键词，便于窗口多了切换</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>参考：<a href="http://blog.konghy.cn/2016/09/29/tmux/" target="_blank" rel="noopener">Tmux 简介与使用</a></p>
+</blockquote>
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2018/04/26/tmux_conf/" data-id="cjgfy83ei001w8q2jsbdhx778" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tmux/">tmux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/24/SPA_history/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTML5 History模式配置 (Node.js)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>
