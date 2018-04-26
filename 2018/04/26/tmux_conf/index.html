@@ -97,8 +97,9 @@ $toggle.addEventListener('click', function(e){
       
         <div id="article-md">
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <p="">Tmux 终端分屏利器。运行多个终端会话，你还可以通过 Tmux 使终端会话运行于后台或是按需接入、断开会话。实用高效<br><a id="more"></a><p></p>
+<h3 id="为什么配置"><a href="#为什么配置" class="headerlink" title="为什么配置"></a>为什么配置</h3><p>受不了<code>ctrl + b</code>（这两个组合键每次按的时候都要停顿一下…），还有<code>% “</code>分屏 -_-#</p>
+<hr>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://brew.sh/index_zh-cn" target="_blank" rel="noopener">homebrew</a>安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tmux</span><br></pre></td></tr></table></figure></p>
-<h2 id="为什么配置"><a href="#为什么配置" class="headerlink" title="为什么配置"></a>为什么配置</h2><p>受不了<code>ctrl + b</code>（这两个组合键每次按的时候都要停顿一下…），还有<code>% “</code>分屏 -_-#</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>用户用户名<code>~</code>目录修改/新建<code>.tmux.conf</code>文件</p>
 <p>我需要：</p>
 <ol>
@@ -113,6 +114,7 @@ $toggle.addEventListener('click', function(e){
 <blockquote>
 <p><strong>注意：</strong> 修改配置并使其生效 你修改了~/.tmux.conf, 但是并没有起作用。你退出tmux, 重新进去，发现还是没有生效。<br>这是因为tmux后台有一个server, 在你第一次使用它时启动, 并创建会话。 当你退出时，它并没有退出。正确的方法杀掉server后再重新进入：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-server</span><br><span class="line"></span><br><span class="line">tmux</span><br></pre></td></tr></table></figure></p>
 </blockquote>
+<hr>
 <h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><p>默认命令前缀：<code>ctrl + b</code>（上面，我们默认改成了<code>ctrl + a</code>）</p>
 <h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><table>
 <thead>
@@ -273,7 +275,7 @@ $toggle.addEventListener('click', function(e){
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://wangcch.cc/2018/04/26/tmux_conf/" data-id="cjgfy83ei001w8q2jsbdhx778" class="article-share-link">Share</a> -->
+      <!-- <a data-url="http://wangcch.cc/2018/04/26/tmux_conf/" data-id="cjgfyvu1l0027vz2jat0rfhn5" class="article-share-link">Share</a> -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tmux/">tmux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
