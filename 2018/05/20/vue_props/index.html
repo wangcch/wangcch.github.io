@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vue Props | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  <link href="/lightgallery/lightgallery.min.css" rel="stylesheet">
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-vue_props" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/20/vue_props/" class="article-date">
+  <time datetime="2018-05-19T16:00:00.000Z" itemprop="datePublished">2018-05-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>►<a class="article-category-link" href="/categories/js/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue Props
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <blockquote="">
+<p>Prop 是你可以在组件上注册的一些自定义特性。当一个值传递给一个 prop 特性的时候，它就变成了那个组件实例的一个属性。</p>
+
+<a id="more"></a>
+<p>简单来说就是：可以<strong>通过Prop向子组件传递数据</strong>。</p>
+<p>为什么使用？项目组件化，实现实现自定义组件的高度复用性与自定义化。</p>
+<h2 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// Page.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;page-demo&quot;&gt;</span><br><span class="line">    &lt;props-demo :data=&quot;demo&quot;&gt;&lt;/props-demo&gt; // prop 传值</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import PropsDemo from &apos;~/components/PropsDemo.vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;page-demo&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      demo: &apos;hello&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    PropsDemo</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// PropsDemo.vue</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;props-demo&quot;&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; demo &#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;props-demo&quot;,</span><br><span class="line">  props: [&apos;demo&apos;]</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="props验证"><a href="#props验证" class="headerlink" title="props验证"></a>props验证</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  <span class="comment">// 类型检测 默认任何类型自动匹配</span></span><br><span class="line">  prop1: <span class="built_in">Number</span>,</span><br><span class="line">   </span><br><span class="line">  <span class="comment">// 多种类型</span></span><br><span class="line">  prop2: [<span class="built_in">String</span>, <span class="built_in">Number</span>],</span><br><span class="line">   </span><br><span class="line">  <span class="comment">// 必传且是字符串</span></span><br><span class="line">  prop3: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    required: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">   </span><br><span class="line">  <span class="comment">// (数字) 默认值</span></span><br><span class="line">  prop4: &#123;</span><br><span class="line">    type: <span class="built_in">Number</span>,</span><br><span class="line">    <span class="keyword">default</span>: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">   </span><br><span class="line">  <span class="comment">// 自定义验证函数</span></span><br><span class="line">  prop5: &#123;</span><br><span class="line">    validator: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> value &gt; <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h2><p>props主要用于数值的单项传递，但能否实现双向传值绑定呢？是的，他也可以。就是比较麻烦，个人不推荐</p>
+<p>下面看案例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// Father.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;father&quot;&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; demo &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;child-demo :data=&quot;demo&quot; @change-prop=&quot;changeProp&quot;&gt;&lt;/child-demo&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import ChildDemo from &apos;~/components/ChildDemo.vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;father&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      demo: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  methods: &#123;</span><br><span class="line">    // 子组件（ChildDemo.vue）的值发生变化，</span><br><span class="line">    // 父组件（Father.vue）相对的值也会发生变化</span><br><span class="line">    changeProp (val) &#123;</span><br><span class="line">      this.demo = val</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  components: &#123;</span><br><span class="line">    ChildDemo</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// ChildDemo.vue</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;child-demo&quot;&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; demo &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;button @click=&quot;changeData&quot;&gt;change&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;child-demo&quot;,</span><br><span class="line">  props: [&apos;demo&apos;],</span><br><span class="line">  </span><br><span class="line">  methods: &#123;</span><br><span class="line">    changeData () &#123;</span><br><span class="line">      this.changeDemo(!this.demo)</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    changeDemo (val) &#123;</span><br><span class="line">      this.demo = val</span><br><span class="line">      this.$emit(&apos;change-prop&apos;, this.demo)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  watch: &#123;</span><br><span class="line">    // 监听 demo 的值变化</span><br><span class="line">    demo (val) &#123;</span><br><span class="line">      this.$emit(&apos;change-prop&apos;, val)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2018/05/20/vue_props/" data-id="cjhf4kp430000im2jj7bt38yb" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prop/">prop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/26/tmux_conf/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Tmux 简单配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/lightgallery/picturefill.min.js"></script>
+<script src="/lightgallery/lightgallery.min.js"></script>
+<script src="/lightgallery/jquery.mousewheel.min.js"></script>
+<!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>
