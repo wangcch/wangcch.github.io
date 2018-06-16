@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Checkbox自定义menu button | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  <link href="/lightgallery/lightgallery.min.css" rel="stylesheet">
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-css_menu_icon" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/17/css_menu_icon/" class="article-date">
+  <time datetime="2018-06-16T16:00:00.000Z" itemprop="datePublished">2018-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Checkbox自定义menu button
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <p="">使用 input&gt;checkbox 实现菜单按钮<p></p>
+<p><a href="https://cdn.wangcch.cc/blog/css-menu.gif" title="css-menu" class="gallery-item" target="_blank" rel="noopener"><img src="https://cdn.wangcch.cc/blog/css-menu.gif" alt="css-menu"></a><br><a id="more"></a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>记得以前写这种类似开关控制都是，由点击事件驱动样式（监听点击事件-&gt;动态添加样式）。现在看来总感觉很麻烦。不能确定唯一性，单一值驱动相关事件发生。</p>
+<p>自上次总结了<a href="https://blog.theyear.space/2018/06/07/custom_radio/" target="_blank" rel="noopener">自定义 input&gt;radio 单选</a> checkbox当然也可以自定义，而且就是一个开关。这样就简单多了，根本无需监听点击事件就可以以 <strong>input&gt;checkbox</strong> 的bool值驱动所有。并且也可以坚定其事件变化。方便～</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>废话不多说，直接上东西</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 框 + 三个横线</span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"icon-menu"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">hidden</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-menu_line"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-menu_line"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-menu_line"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><p>结构上已经隐藏了input&gt;checkbox， 所以我们只需添加<code>.icon-menu</code><code>.icon-menu_line</code>样式。</p>
+<p>选中状态也可以直接通过<code>input[type=”checkbox”]:checked</code>判断，无需事件监听动态修改样式，全css判断<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// font-size: 16px;</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.icon-menu</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1.5em</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1.5em</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#303133</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">flex-direction</span>: column;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">    <span class="selector-class">.icon-menu_line</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">0.75em</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">2px</span>;</span><br><span class="line">        <span class="attribute">background</span>: <span class="number">#303133</span>;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">2px</span>;</span><br><span class="line">        <span class="attribute">transition</span>: all <span class="number">0.2s</span> ease;</span><br><span class="line">        &amp;:nth-of-type(1) &#123;</span><br><span class="line">            <span class="attribute">margin-top</span>: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">input</span><span class="selector-attr">[type="checkbox"]</span>:checked ~ <span class="selector-class">.icon-menu_line</span> &#123;</span><br><span class="line">        <span class="attribute">position</span>: absolute;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">0</span>;</span><br><span class="line">        &amp;:nth-of-type(1) &#123;</span><br><span class="line">            <span class="attribute">transform</span>: rotate(<span class="number">45deg</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        &amp;:nth-of-type(<span class="number">2</span>) &#123;</span><br><span class="line">            display: none;</span><br><span class="line">        &#125;</span><br><span class="line">        &amp;:nth-of-type(3) &#123;</span><br><span class="line">            <span class="attribute">transform</span>: rotate(-<span class="number">45deg</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p>使用 <strong>checkbox</strong> 就很简单了，直接监听 <strong>input&gt;checkbox</strong> 事件就可以了，没什么麻烦的</p>
+<h3 id="Vue-Demo"><a href="#Vue-Demo" class="headerlink" title="Vue Demo"></a>Vue Demo</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"icon-menu"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>=<span class="string">"isShowMenu"</span> @<span class="attr">change</span>=<span class="string">"changeShowMenu"</span> <span class="attr">hidden</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-menu_line"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-menu_line"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-menu_line"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">changeShowMenu () &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.isShowMenu)</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="React-Demo"><a href="#React-Demo" class="headerlink" title="React Demo"></a>React Demo</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; data &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;label className=<span class="string">"icon-menu"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"checkbox"</span> checked=&#123;data.checked&#125; onChange=&#123;<span class="keyword">this</span>.props.changeShowMenu&#125; hidden&gt;</span><br><span class="line">        &lt;span className=<span class="string">"icon-menu_line"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">        &lt;span className=<span class="string">"icon-menu_line"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">        &lt;span className=<span class="string">"icon-menu_line"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">      &lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">...</span></span><br></pre></td></tr></table></figure>
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2018/06/17/css_menu_icon/" data-id="cjihq7l0p000zh82jid5i55u6" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/checkbox/">checkbox</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/input/">input</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/07/custom_radio/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">自定义 input&gt;radio 单选</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/lightgallery/picturefill.min.js"></script>
+<script src="/lightgallery/lightgallery.min.js"></script>
+<script src="/lightgallery/jquery.mousewheel.min.js"></script>
+<!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>
