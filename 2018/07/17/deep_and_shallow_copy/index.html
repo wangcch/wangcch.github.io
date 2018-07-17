@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS深浅拷贝 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  <link href="/lightgallery/lightgallery.min.css" rel="stylesheet">
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+        <a class="nav-link" href="/about">About</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-deep_and_shallow_copy" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/17/deep_and_shallow_copy/" class="article-date">
+  <time datetime="2018-07-16T16:00:00.000Z" itemprop="datePublished">2018-07-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS深浅拷贝
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <p="">一个老生常谈的问题，也是  挤压很久的文章。也是  我业务代码赋值传递过程进场遇到的问题。其实之前没有深浅拷贝的概念。只是是与空的对象/数组合并生成新的对象/数组，或者是正反序列化，避免指向原数组/对象。后来查看<a href="https://yuchengkai.cn/docs/" target="_blank" rel="noopener">InterviewMap</a> 才知道深浅拷贝概念。所以简单  记录保存一下吧…<p></p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title=" 前言"></a> 前言</h2><p>一个赋值问题：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  age: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = obj1;</span><br><span class="line">obj2.age = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1.age); <span class="comment">// 2 obj1的值也改变了</span></span><br></pre></td></tr></table></figure>
+<p>是的，对象/数组的简单复制，并不是对象/数组本身， 而是指向改对象的指针。 所以两个  变量（obj1、obj2）指向的是同一个对象。</p>
+<p>怎么解决呢？深浅拷贝，其实原理感觉都是为了生成新的对象/数组</p>
+<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title=" 浅拷贝"></a> 浅拷贝</h2><h3 id="循环遍历赋值"><a href="#循环遍历赋值" class="headerlink" title="循环遍历赋值"></a>循环遍历赋值</h3><p> 我们知道，复制一个基本类型的值时，会创建一个新值，并把它保存在新的变量的位置上。简单来说就是一个一个复制对象/数组中的单一值。 基本上下面的也是相同的原理。</p>
+<h3 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title=" 扩展运算符"></a> 扩展运算符</h3><p>将一个对象/数组转为用逗号分隔的参数序列。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  age: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123; ...obj1 &#125;;</span><br><span class="line">obj2.age = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1.age); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h3 id="Object-assign-target-…sources"><a href="#Object-assign-target-…sources" class="headerlink" title="Object.assign(target, …sources)"></a>Object.assign(target, …sources)</h3><p> 当然 js 标准  库中也提供了一些方法。<code>Object.assign()</code> 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  age: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj1);</span><br><span class="line">obj2.age = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1.age); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h3 id="Array-slice"><a href="#Array-slice" class="headerlink" title="Array.slice()"></a>Array.slice()</h3><p><code>slice()</code> 方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象。且原始数组不会被修改。</p>
+<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><h3 id="正反序列化"><a href="#正反序列化" class="headerlink" title="正反序列化"></a>正反序列化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj));</span><br></pre></td></tr></table></figure>
+<p>局限性：</p>
+<ul>
+<li>忽略 undefined</li>
+<li>不能序列化函数</li>
+<li>不能深拷贝内对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    age: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  b: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj1));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1.a === obj2.a)          <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1.b === obj2.b)          <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1.a.age === obj2.a.age)  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="循环遍历赋值-递归"><a href="#循环遍历赋值-递归" class="headerlink" title="循环遍历赋值 + 递归"></a>循环遍历赋值 + 递归</h3><p>与上述方法相同，多了对内对象的再次循环赋值处理。当然你可以封装一个方法递归处理。</p>
+<blockquote>
+<p>如果你想深复制一个对象（那就是沿着原形链，对所有属性进行递归复制），你必须要用另外一种方法。以下是一个可行的例子。<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/API/DOM/The_structured_clone_algorithm" target="_blank" rel="noopener">结构化克隆算法-深复制</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">objectToBeCloned</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Basis.</span></span><br><span class="line">  <span class="keyword">if</span> (!(objectToBeCloned <span class="keyword">instanceof</span> <span class="built_in">Object</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> objectToBeCloned;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> objectClone;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Filter out special objects.</span></span><br><span class="line">  <span class="keyword">var</span> Constructor = objectToBeCloned.constructor;</span><br><span class="line">  <span class="keyword">switch</span> (Constructor) &#123;</span><br><span class="line">    <span class="comment">// Implement other special objects here.</span></span><br><span class="line">    <span class="keyword">case</span> <span class="built_in">RegExp</span>:</span><br><span class="line">      objectClone = <span class="keyword">new</span> Constructor(objectToBeCloned);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="built_in">Date</span>:</span><br><span class="line">      objectClone = <span class="keyword">new</span> Constructor(objectToBeCloned.getTime());</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      objectClone = <span class="keyword">new</span> Constructor();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Clone each property.</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> objectToBeCloned) &#123;</span><br><span class="line">    objectClone[prop] = clone(objectToBeCloned[prop]);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> objectClone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="其他工具库"><a href="#其他工具库" class="headerlink" title="其他工具库"></a>其他工具库</h3><ol>
+<li>loadash: <a href="https://lodash.com/docs/4.17.10##cloneDeep" target="_blank" rel="noopener">loadash 的深拷贝函数</a></li>
+<li>尤大封装的循环使用JSON.stringify和JSON.parse：<a href="https://github.com/yyx990803/circular-json-es6" target="_blank" rel="noopener">circular-json-es6</a></li>
+</ol>
+<blockquote>
+<p> 参考<br><a href="https://yuchengkai.cn/docs/zh/frontend/#%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D" target="_blank" rel="noopener">深浅拷贝</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/API/DOM/The_structured_clone_algorithm" target="_blank" rel="noopener">结构化克隆算法</a></p>
+</blockquote>
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2018/07/17/deep_and_shallow_copy/" data-id="cjjo2f6zv000ug62jx9ur1avn" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DeepCopy/">DeepCopy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/11/custom_events_sync/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue 自定义事件.sync 双向绑定</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/lightgallery/picturefill.min.js"></script>
+<script src="/lightgallery/lightgallery.min.js"></script>
+<script src="/lightgallery/jquery.mousewheel.min.js"></script>
+<!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>
