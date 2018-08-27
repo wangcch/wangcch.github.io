@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>啃个正则骨头--Url解析 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  <link href="/lightgallery/lightgallery.min.css" rel="stylesheet">
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+        <a class="nav-link" href="/about">About</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-regular_url" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/27/regular_url/" class="article-date">
+  <time datetime="2018-08-26T16:00:00.000Z" itemprop="datePublished">2018-08-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/other/">other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      啃个正则骨头--Url解析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <blockquote="">
+<p>正则表达式是用于匹配字符串中字符组合的模式。在 JavaScript 中，正则表达式也是对象。这些模式被用于 RegExp 的 exec 和 test 方法, 以及 String 的 match、replace、search 和 split 方法。</p>
+
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p> 正则这种东西是一个让我头疼的东西，真是书到用时方恨少，平常写的不多。但是真的到用的时候真的能大大提高生产力。</p>
+<blockquote>
+<p>以解析 Url 参数为例: <a href="https://wangcch.cc?key1=demo1&amp;key2=demo2">https://wangcch.cc?key1=demo1&amp;key2=demo2</a><br>目标解析为<code>{key1: “demo1”, key2: “demo2”}</code></p>
+</blockquote>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>提取键值对</li>
+<li>分离键值</li>
+</ol>
+<h3 id="提取键值"><a href="#提取键值" class="headerlink" title=" 提取键值"></a> 提取键值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">"https://wangcch.cc?key1=demo1&amp;key2=demo2"</span>;</span><br></pre></td></tr></table></figure>
+<p> 首先在字符串中我们需要的的是<code>key1=demo1&amp;key2=demo2</code>， 当然我们可以先以<code>?</code>分割字符串，再匹配<code>[string]=[string]</code>这种类型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url.split(<span class="string">"?"</span>)[<span class="number">1</span>];</span><br><span class="line"><span class="comment">// key1=demo1&amp;key2=demo2</span></span><br></pre></td></tr></table></figure>
+<p>匹配<code>[string]=[string]</code>时，<code>&amp;</code>可以分离减值对。当然如果区分<code>&amp;</code>，不如  也将<code>?</code>带上。 识别<code>?/&amp;</code>为键值对开头。</p>
+<p> 思路： <code>[&amp;|?][string]=[string]</code><br></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">url.match(<span class="regexp">/[\&amp;|\?]\w+\=\w+/g</span>);</span><br><span class="line"><span class="comment">// ["?key1=demo1", "&amp;key2=demo2"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * \w    匹配一个单字字符（字母、数字或者下划线</span></span><br><span class="line"><span class="comment"> * \w+   匹配多个 \w，类似 \w&#123;1,&#125;</span></span><br><span class="line"><span class="comment"> * g     全局搜索</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>去除键值对前的<code>?</code>|<code>&amp;</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">url.match(<span class="regexp">/[\&amp;|\?]\w+\=\w+/g</span>).map(<span class="function"><span class="params">item</span> =&gt;</span> item.replace(<span class="regexp">/^[\&amp;|\?]/g</span>, <span class="string">""</span>));</span><br><span class="line"><span class="comment">//  ["key1=demo1", "key2=demo2"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ^     匹配输入的开始，输入字符串开始的位置。</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h3 id="分离键值"><a href="#分离键值" class="headerlink" title=" 分离键值"></a> 分离键值</h3><p>通过上述，已经提取了想要的键值数据： <code>[“key1=demo1”, “key2=demo2”]</code>。 接下来就是分离键值,目标：<code>{key1: “demo1”, key2: “demo2”}</code>。</p>
+<p><code>=</code>分割键值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">url</span><br><span class="line">  .match(<span class="regexp">/[\&amp;|\?]\w+\=\w+/g</span>)</span><br><span class="line">  .map(<span class="function"><span class="params">item</span> =&gt;</span> item.replace(<span class="regexp">/^[\&amp;|\?]/g</span>, <span class="string">""</span>).splice(<span class="string">"="</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// [["key1", "demo1"], ["key2", "demo2"]] 二维数组</span></span><br></pre></td></tr></table></figure>
+<p>格式化，返回键值对对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">url</span><br><span class="line">  .match(<span class="regexp">/[\&amp;|\?]\w+\=\w+/g</span>)</span><br><span class="line">  .map(<span class="function"><span class="params">item</span> =&gt;</span> item.replace(<span class="regexp">/^[\&amp;|\?]/g</span>, <span class="string">""</span>).split(<span class="string">"="</span>))</span><br><span class="line">  .map(<span class="function"><span class="params">arr</span> =&gt;</span> (obj[arr[<span class="number">0</span>]] = arr[<span class="number">1</span>]));</span><br><span class="line"></span><br><span class="line"><span class="comment">// obj: &#123;key1: "demo1", key2: "demo2"&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后 "></a>最后 </h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> parsingURL = <span class="function"><span class="params">url</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">  url</span><br><span class="line">    .match(<span class="regexp">/[\&amp;|\?]\w+\=\w+/g</span>)</span><br><span class="line">    .map(<span class="function"><span class="params">item</span> =&gt;</span> item.replace(<span class="regexp">/^[\&amp;|\?]/g</span>, <span class="string">""</span>).split(<span class="string">"="</span>))</span><br><span class="line">    .map(<span class="function"><span class="params">arr</span> =&gt;</span> (obj[arr[<span class="number">0</span>]] = arr[<span class="number">1</span>]));</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>当然引 qs 库也许更快：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; parse &#125; = <span class="built_in">require</span>(<span class="string">"qs"</span>);</span><br><span class="line"><span class="keyword">const</span> parsingURL = <span class="function"><span class="params">url</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> parse(url.split(<span class="string">"?"</span>)[<span class="number">1</span>]);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 面对复杂情况恐怕也好要好好写</span></span><br><span class="line"><span class="keyword">const</span> parsingURL = <span class="function"><span class="params">url</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> url.split(<span class="string">"?"</span>)[<span class="number">1</span>]</span><br><span class="line">    ? parse(</span><br><span class="line">        url</span><br><span class="line">          .split(<span class="string">"?"</span>)[<span class="number">1</span>]</span><br><span class="line">          .match(<span class="regexp">/\&amp;?\w+\=\w+/g</span>)</span><br><span class="line">          .join(<span class="string">""</span>)</span><br><span class="line">      )</span><br><span class="line">    : &#123;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>其实感觉JSON序列化也未尝不可</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> parsingURL = <span class="function"><span class="params">url</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">  url</span><br><span class="line">    .match(<span class="regexp">/[\&amp;|\?]\w+\=\w+/g</span>)</span><br><span class="line">    .map(<span class="function"><span class="params">item</span> =&gt;</span> item.replace(<span class="regexp">/^[\&amp;|\?]/g</span>, <span class="string">""</span>).split(<span class="string">"&amp;"</span>))</span><br><span class="line">    .map(<span class="function"><span class="params">arr</span> =&gt;</span> (obj[arr[<span class="number">0</span>]] = arr[<span class="number">1</span>]));</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="noopener">MDN:正则表达式</a></p>
+</blockquote>
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2018/08/27/regular_url/" data-id="cjlc40ca5001t272jkxbxcfek" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regular/">regular</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/14/react_prop_state/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React 组件数据prop与state</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/lightgallery/picturefill.min.js"></script>
+<script src="/lightgallery/lightgallery.min.js"></script>
+<script src="/lightgallery/jquery.mousewheel.min.js"></script>
+<!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>
