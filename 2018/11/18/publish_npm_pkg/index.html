@@ -22,10 +22,10 @@
     <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
       <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
   <div class="head-mp hidden-lg hidden-md hidden-sm">
-    <h1><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+    <h1><a href="/">Wangcch'Blog</a>&nbsp;<small>dev</small></h1>
     <div class="head-nav-toggle fas fa-bars">M</div>
   </div>
-  <h1 class="hidden-xs"><a href="/">Demon'Blog</a>&nbsp;<small>dev</small></h1>
+  <h1 class="hidden-xs"><a href="/">Wangcch'Blog</a>&nbsp;<small>dev</small></h1>
   <p class="intro">不想做前瑞的右端，不是好没计师</p>
   <nav id="head-nav">
     <div class="head-nav-ul">
@@ -46,7 +46,7 @@
     <footer id="footer">
   
   <div id="footer-info">
-      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+      Copyright &copy; 2019 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
   </div>
 </footer>
   </div>
@@ -109,22 +109,22 @@ $toggle.addEventListener('click', function(e){
 <li><p>npm addusr  键入，根据提示操作</p>
 </li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm adduser</span></span><br><span class="line">Username: YOUR_USER_NAME</span><br><span class="line">Password: YOUR_PASSWORD</span><br><span class="line">Email: YOUR_EMAIL@domain.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm adduser</span><br><span class="line">Username: YOUR_USER_NAME</span><br><span class="line">Password: YOUR_PASSWORD</span><br><span class="line">Email: YOUR_EMAIL@domain.com</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>但是比较遗憾的是，你想注册的 username 不一定没有其他人注册，可以先去测试一下 uersname <code><a href="https://www.npmjs.com/~[your_name]" target="_blank" rel="noopener">https://www.npmjs.com/~[your_name]</a></code>。祝你好运～</p>
 </blockquote>
 <p>为了之后方便可以设置一些默认配置值</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm <span class="built_in">set</span> init-author-name <span class="string">'Your name'</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm <span class="built_in">set</span> init-author-email <span class="string">'Your email'</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm <span class="built_in">set</span> init-author-url <span class="string">'http://yourdomain.com'</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm <span class="built_in">set</span> init-license <span class="string">'MIT'</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm set init-author-name 'Your name'</span><br><span class="line"><span class="meta">$</span> npm set init-author-email 'Your email'</span><br><span class="line"><span class="meta">$</span> npm set init-author-url 'http://yourdomain.com'</span><br><span class="line"><span class="meta">$</span> npm set init-license 'MIT'</span><br></pre></td></tr></table></figure>
 <p><code>npm init</code>时，配置默认<code>package.json</code>信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看配置信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm config ls</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看所有配置信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm config ls -l</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看配置信息</span><br><span class="line"><span class="meta">$</span> npm config ls</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看所有配置信息</span><br><span class="line"><span class="meta">$</span> npm config ls -l</span><br></pre></td></tr></table></figure>
 <p><code>~/.npmrc</code>文件可查看</p>
 <h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>当你一切准备好了，就可以发包了。</p>
 <blockquote>
 <p>还是一样的问题，<code>name</code>不要重复，不然 install 时，无法定位你的包，可以先搜一下<a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 默认发布restricted私有包（主要私有是要付费的）</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm publish</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 发布公有包</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm publish --access=public</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> beta，默认latest</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm publish --tag beta</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 默认发布restricted私有包（主要私有是要付费的）</span><br><span class="line"><span class="meta">$</span> npm publish</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 发布公有包</span><br><span class="line"><span class="meta">$</span> npm publish --access=public</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> beta，默认latest</span><br><span class="line"><span class="meta">$</span> npm publish --tag beta</span><br></pre></td></tr></table></figure>
 <p>更多信息  -&gt; <a href="https://docs.npmjs.com/cli/publish" target="_blank" rel="noopener">https://docs.npmjs.com/cli/publish</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看当前包信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm info</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 列出指定模块的维护者</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm owner ls &lt;package name&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 新增维护者</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm owner add &lt;user&gt; &lt;package name&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除维护者</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm owner rm &lt;user&gt; &lt;package name&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看当前包信息</span><br><span class="line"><span class="meta">$</span> npm info</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 列出指定模块的维护者</span><br><span class="line"><span class="meta">$</span> npm owner ls &lt;package name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 新增维护者</span><br><span class="line"><span class="meta">$</span> npm owner add &lt;user&gt; &lt;package name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除维护者</span><br><span class="line"><span class="meta">$</span> npm owner rm &lt;user&gt; &lt;package name&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>当你修改了你的包文件，你可以用<code>npm version &lt;update_type&gt;</code>更新它。<a href="https://docs.npmjs.com/cli/version" target="_blank" rel="noopener">https://docs.npmjs.com/cli/version</a></p>
 <p> 版本建议：</p>
 <table>
@@ -163,7 +163,7 @@ $toggle.addEventListener('click', function(e){
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://wangcch.cc/2018/11/18/publish_npm_pkg/" data-id="cjolv7g9m001xmkwpkwkef186" class="article-share-link">Share</a> -->
+      <!-- <a data-url="http://wangcch.cc/2018/11/18/publish_npm_pkg/" data-id="cjrlt695h001pakmkgmrh3959" class="article-share-link">Share</a> -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/publish/">publish</a></li></ul>
@@ -173,6 +173,15 @@ $toggle.addEventListener('click', function(e){
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/01/31/require_or_import/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          require/exports | import/export
+        
+      </div>
+    </a>
   
   
     <a href="/2018/11/16/use-nvm/" id="article-nav-older" class="article-nav-link-wrap">
@@ -192,7 +201,7 @@ $toggle.addEventListener('click', function(e){
         <footer id="footer">
   
   <div id="footer-info">
-      Copyright &copy; 2018 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+      Copyright &copy; 2019 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
   </div>
 </footer>
       </div>
