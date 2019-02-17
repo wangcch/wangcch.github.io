@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>看看 JaveScript ES2019 | BLOG | THEYEAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
+  <link href="/lightgallery/lightgallery.min.css" rel="stylesheet">
+  
+    <link rel="alternate" href="/atom.xml" title="BLOG | THEYEAR" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap" class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+      <header id="header" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+  <div class="head-mp hidden-lg hidden-md hidden-sm">
+    <h1><a href="/">Wangcch'Blog</a>&nbsp;<small>dev</small></h1>
+    <div class="head-nav-toggle fas fa-bars">M</div>
+  </div>
+  <h1 class="hidden-xs"><a href="/">Wangcch'Blog</a>&nbsp;<small>dev</small></h1>
+  <p class="intro">不想做前瑞的右端，不是好没计师</p>
+  <nav id="head-nav">
+    <div class="head-nav-ul">
+      
+        <a class="nav-link" href="/">Home</a>
+      
+        <a class="nav-link" href="/archives">Archives</a>
+      
+        <a class="nav-link" href="/induction">Induction</a>
+      
+        <a class="nav-link" href="/gallery">Gallery</a>
+      
+        <a class="nav-link" href="/about">About</a>
+      
+    </div>
+  </nav>
+  <div class="hidden-xs">
+    <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2019 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+  </div>
+  <div class="head-img hidden-xs"></div>
+</header>
+<script>
+// nav button
+var $toggle = document.querySelector('.head-nav-toggle');
+var $navlist = document.querySelector('#head-nav');
+
+$toggle.addEventListener('click', function(e){
+  if ($navlist.className.indexOf('head-navlist') > 0) {
+    $navlist.className = " ";
+    setTimeout(function(){
+      if($navlist.className.indexOf('head-navlist') < 0) {
+        $navlist.style.height = "0px"
+      }
+    },400)
+  }else{
+    $navlist.style.height = "auto"
+    $navlist.className += " head-navlist";
+  }
+})
+</script>
+      <div class="pull-right col-lg-8 col-md-8 col-sm-8 col-xs-12 flex-center main-box">
+        <section id="main" class="col-lg-10 col-md-8 col-sm-12 col-xs-12"><article id="post-new_es10" class="animated fadeInUp article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/12/new_es10/" class="article-date">
+  <time datetime="2019-02-11T16:00:00.000Z" itemprop="datePublished">2019-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      看看 JaveScript ES2019
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="article-md">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css"><div class=".article-gallery" <p="">一起看看在 ES2019 中带来的新特性。<p></p>
+<a id="more"></a>
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><ul>
+<li>Array.prototype.{flat,flatMap}</li>
+<li>Object.fromEntries</li>
+<li>String.prototype.{trimStart, trimEnd}</li>
+<li>Optional Catch Binding</li>
+<li>JSON ⊂ ECMAScript</li>
+<li>Well-formed JSON.stringify</li>
+<li>Function.prototype.toString</li>
+<li>Symbol.prototype.description</li>
+</ul>
+<h2 id="Array-prototype-flat-flatMap"><a href="#Array-prototype-flat-flatMap" class="headerlink" title="Array.prototype.{flat,flatMap}"></a>Array.prototype.{flat,flatMap}</h2><h3 id="flat"><a href="#flat" class="headerlink" title="flat()"></a>flat()</h3><p><code>flat()</code>方法会递归到指定深度将所有子数组连接，并返回一个新数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = arr.flat(depth);</span><br><span class="line"><span class="comment">// depth: 可选，指定嵌套数组中的结构深度，默认值为1。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// demo</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>]];</span><br><span class="line">arr1.flat();</span><br><span class="line"><span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]];</span><br><span class="line">arr2.flat();</span><br><span class="line"><span class="comment">// [1, 2, 3, [4, 5]]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr3 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]];</span><br><span class="line">arr3.flat(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+<h3 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap()"></a>flatMap()</h3><p><code>flatMap()</code> 方法首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。等于 map + 深度值 1 的 flat。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// demo</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">arr1.map(<span class="function"><span class="params">x</span> =&gt;</span> [x * <span class="number">2</span>]);</span><br><span class="line"><span class="comment">// [[2], [4], [6]]</span></span><br><span class="line"></span><br><span class="line">arr1.flatMap(<span class="function"><span class="params">x</span> =&gt;</span> [x * <span class="number">2</span>]);</span><br><span class="line"><span class="comment">// [2, 4, 6]</span></span><br></pre></td></tr></table></figure>
+<h2 id="Object-fromEntries"><a href="#Object-fromEntries" class="headerlink" title="Object.fromEntries"></a>Object.fromEntries</h2><p>方法 <code>Object.fromEntries()</code> 把键值对列表转换为一个对象。是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries" target="_blank" rel="noopener">Object.entries</a> 的反转。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// demo</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([[<span class="string">"name"</span>, <span class="string">"demo"</span>], [<span class="string">"age"</span>, <span class="number">18</span>]]);</span><br><span class="line"><span class="keyword">const</span> obj = <span class="built_in">Object</span>.fromEntries(map);</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123; name: "demo", age: 42 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [[<span class="string">"0"</span>, <span class="string">"a"</span>], [<span class="string">"1"</span>, <span class="string">"b"</span>]];</span><br><span class="line"><span class="keyword">const</span> obj = <span class="built_in">Object</span>.fromEntries(arr);</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123; 0: "a", 1: "b"&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="String-prototype-trimStart-trimEnd"><a href="#String-prototype-trimStart-trimEnd" class="headerlink" title="String.prototype.{trimStart, trimEnd}"></a>String.prototype.{trimStart, trimEnd}</h2><p><code>trimStart()</code> 方法从字符串的开头删除空格。trimLeft()别名；<br><code>trimRight()</code> 方法从一个字符串的右端移除空白字符。trimRight()别名。<br>不会直接修改原字符串本身。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// demo</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> greeting = <span class="string">"   Hello world!   "</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(greeting);</span><br><span class="line"><span class="comment">// "   Hello world!   ";</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(greeting.trimStart());</span><br><span class="line"><span class="comment">// "Hello world!   ";</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(greeting.trimEnd());</span><br><span class="line"><span class="comment">// "Hello world!";</span></span><br></pre></td></tr></table></figure>
+<h2 id="Optional-Catch-Binding"><a href="#Optional-Catch-Binding" class="headerlink" title="Optional Catch Binding"></a>Optional Catch Binding</h2><p><code>try catch 异常捕获变成可选。</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Before</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">   ...</span><br><span class="line">&#125; <span class="keyword">catch</span>(error) &#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// After</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">   ...</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JSON-⊂-ECMAScript"><a href="#JSON-⊂-ECMAScript" class="headerlink" title="JSON ⊂ ECMAScript"></a>JSON ⊂ ECMAScript</h2><p>现在，字符串文字中允许使用行分隔符（U + 2028）和段落分隔符（U + 2029）符号。以前会导致 SyntaxError 异常。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">'"\u2028"'</span>);</span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'"\u2029"'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Well-formed-JSON-stringify"><a href="#Well-formed-JSON-stringify" class="headerlink" title="Well-formed JSON.stringify"></a>Well-formed JSON.stringify</h2><p>更加友好的 JSON.stringify，修复了一些超出范围的 unicode 展示。</p>
+<h2 id="Function-prototype-toString"><a href="#Function-prototype-toString" class="headerlink" title="Function.prototype.toString"></a>Function.prototype.toString</h2><p><code>.toString()</code>现在返回源代码文本的精确切片，包括空格和注释。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> /* <span class="title">a</span> <span class="title">comment</span> */ <span class="title">foo</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Previously:</span></span><br><span class="line">foo.toString();</span><br><span class="line"><span class="comment">// 'function foo() &#123;&#125;'</span></span><br><span class="line"><span class="comment">//             ^ no comment</span></span><br><span class="line"><span class="comment">//               ^ no space</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Now:</span></span><br><span class="line">foo.toString();</span><br><span class="line"><span class="comment">// 'function /* comment */ foo () &#123;&#125;'</span></span><br></pre></td></tr></table></figure>
+<h2 id="Symbol-prototype-description"><a href="#Symbol-prototype-description" class="headerlink" title="Symbol.prototype.description"></a>Symbol.prototype.description</h2><p><code>description</code> 是一个只读属性，它会返回 Symbol 对象的可选描述的字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Symbol</span>(<span class="string">'desc'</span>).toString();   <span class="comment">// "Symbol(desc)"</span></span><br><span class="line"><span class="built_in">Symbol</span>(<span class="string">'desc'</span>).description;  <span class="comment">// "desc"</span></span><br><span class="line"><span class="built_in">Symbol</span>(<span class="string">''</span>).description;      <span class="comment">// ""</span></span><br><span class="line"><span class="built_in">Symbol</span>().description;        <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// well-known symbols</span></span><br><span class="line"><span class="built_in">Symbol</span>.iterator.toString();  <span class="comment">// "Symbol(Symbol.iterator)"</span></span><br><span class="line"><span class="built_in">Symbol</span>.iterator.description; <span class="comment">// "Symbol.iterator"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// global symbols</span></span><br><span class="line"><span class="built_in">Symbol</span>.for(<span class="string">'foo'</span>).toString();  <span class="comment">// "Symbol(foo)"</span></span><br><span class="line"><span class="built_in">Symbol</span>.for(<span class="string">'foo'</span>).description; <span class="comment">// "foo"</span></span><br></pre></td></tr></table></figure>
+<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><p>tc39/proposals: <a href="https://github.com/tc39/proposals" target="_blank" rel="noopener">https://github.com/tc39/proposals</a></p>
+<blockquote>
+<p>参考：<br><a href="https://medium.freecodecamp.org/whats-new-in-javascript-es2019-8af4390d8494" target="_blank" rel="noopener">What’s new in JavaScript ES2019</a> &gt; <a href="https://nitayneeman.com/posts/a-taste-from-ecmascript-2019/" target="_blank" rel="noopener">ECMAScript - A Taste from ES2019 (ES10)</a> &gt; <a href="https://developer.mozilla.org" target="_blank" rel="noopener">MDN web docs</a></p>
+</blockquote>
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://wangcch.cc/2019/02/12/new_es10/" data-id="cjs045i1o0035332jw5gxcvz3" class="article-share-link">Share</a> -->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es10/">es10</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es2019/">es2019</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/31/require_or_import/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">require/exports | import/export</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <div id="footer-mp" class="hidden-lg hidden-md hidden-sm">
+        <div class="head-img"></div>
+        <footer id="footer">
+  
+  <div id="footer-info">
+      Copyright &copy; 2019 Wangcch<br/>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>&nbsp;Theme by <a href="https://github.com/wangcch/hexo-theme-tydeus" target="_blank">Tydeus</a>
+  </div>
+</footer>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <!--  -->
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/induction" class="mobile-nav-link">Induction</a>
+  
+    <a href="/gallery" class="mobile-nav-link">Gallery</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/lightgallery/picturefill.min.js"></script>
+<script src="/lightgallery/lightgallery.min.js"></script>
+<script src="/lightgallery/jquery.mousewheel.min.js"></script>
+<!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+    
+  </div>
+</body>
+<script>
+
+var windowWidth = $(window).width();
+
+if (windowWidth > 768) {
+  var $mainBox = document.querySelector('.main-box');
+  var $wrap = document.querySelector('#wrap');
+  var $article = document.getElementById('main').getElementsByTagName('article');
+  var articleNum = $article.length;
+  var widgetWrapNum = document.getElementById('main').getElementsByClassName('widget-wrap').length;
+  var windowHeight = $(window).height();
+  var scrollHeight = articleNum>0? $article[0].scrollHeight : windowHeight;
+  if ((articleNum < 3 && (scrollHeight < windowHeight)) || widgetWrapNum > 0 ) {
+    $mainBox.className += " flex-center-c";
+    $wrap.style.height = "100%";
+  } else {
+    $wrap.style.height = "auto";
+  }
+}
+
+</script>
+</html>
